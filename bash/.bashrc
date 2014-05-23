@@ -6,6 +6,8 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
+source ~/.dotfiles/common.sh
+
 BOLD="\[\033[1m\]"
 RED="\[\033[1;31m\]"
 GREEN="\[\e[32;1m\]"
@@ -23,9 +25,6 @@ GIT_PS1_SHOWCOLORHINTS=true
 
 export HISTSIZE=200000
 export HISTFILESIZE=200000
-
-export TERM="xterm-256color"
-export MC_SKIN=${HOME}/.dotfiles/ext/mc/ini
 
 # functions
 
@@ -71,24 +70,3 @@ function exitstatus {
     PS1=${PS1}" \$ "
 }
 export PROMPT_COMMAND=exitstatus
-
-#ALIASES
-
-alias llt="ls -lht --color=auto"
-alias ll="ls -lh --color=auto"
-alias lla="ls -lha --color=auto"
-alias vR="vim -R"
-alias tree="tree -C"
-alias less="less -r"
-alias vs="vim ./*.spec"
-alias gs="git status"
-alias gd="git diff"
-alias rpmbc="rpmbuild -bs ./*.spec --define \"_sourcedir .\" --define \"_specdir .\" --define \"_srcrpmdir .\" --define \"_rpmdir .\""
-#alias tmux="TERM=screen-256color-bce tmux"
-alias t="exec tmux -2"
-alias htop="TERM=screen htop"
-# COLORS
-eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-universal`
-
-#[[ -z "$TMUX" ]] && exec tmux -2
-#[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
