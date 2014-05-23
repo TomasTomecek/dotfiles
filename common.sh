@@ -6,6 +6,7 @@
 
 export TERM="xterm-256color"
 export MC_SKIN=${HOME}/.dotfiles/ext/mc/ini
+export PAGER="/usr/bin/less"
 
 # ALIAS
 

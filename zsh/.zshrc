@@ -13,6 +13,7 @@ zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
 # prompt / PS1
 zstyle ':completion::complete:*' use-cache 1
 
+export READNULLCMD=less
 
 set -o emacs
 bindkey -e
