@@ -9,8 +9,9 @@ else
     rvm='%{$fg[green]%}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
   fi
 fi
+local jobs_d='%(1j.%{$fg[white]%}J %j %{$reset_color%}.)'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_info='$(git_super_status)'
 
 PROMPT="${user} ${pwd}$ "
-RPROMPT="${return_code} ${git_info} ${rvm}"
+RPROMPT="${jobs_d} ${return_code} ${git_info} ${rvm}"
