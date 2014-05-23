@@ -1,0 +1,19 @@
+[user]
+    name = Tomas Tomecek
+    email = ttomecek@redhat.com
+[color]
+    ui = auto
+[core]
+    editor = vim
+[alias]
+    ci = commit --verbose
+    st = status
+    co = checkout
+    br = branch
+    pu = push
+    a = add
+    d = diff
+[push]
+    default = current
+[diff]
+	tool = meld

@@ -1,0 +1,6 @@
+[submodule "ext/dircolors-solarized"]
+	path = ext/dircolors-solarized
+	url = https://github.com/seebi/dircolors-solarized.git
+[submodule "ext/mc"]
+	path = ext/mc
+	url = https://github.com/peel/mc.git
