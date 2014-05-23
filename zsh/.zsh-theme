@@ -13,5 +13,6 @@ local jobs_d='%(1j.%{$fg[white]%}J %j %{$reset_color%}.)'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_info='$(git_super_status)'
 
-PROMPT="${user} ${pwd}$ "
+# print bell when command ends
+PROMPT="%{$(echo "\a")%}${user} ${pwd}$ "
 RPROMPT="${jobs_d} ${return_code} ${git_info} ${rvm}"
