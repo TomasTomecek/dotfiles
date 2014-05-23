@@ -88,7 +88,7 @@ alias rpmbc="rpmbuild -bs ./*.spec --define \"_sourcedir .\" --define \"_specdir
 alias t="exec tmux -2"
 alias htop="TERM=screen htop"
 # COLORS
-eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-unversal`
+eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-universal`
 
 #[[ -z "$TMUX" ]] && exec tmux -2
 #[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
