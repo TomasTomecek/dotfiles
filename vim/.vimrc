@@ -44,12 +44,6 @@ set showmode
 set t_Co=16 "256
 colorscheme solarized
 
-set rtp+=/usr/lib/python2.7/site-packages/powerline/bindings/vim/
-
-let g:Powerline_theme='short'
-let g:Powerline_colorscheme='skwp'
-let g:Powerline_theme='skwp'
-
 " get rid of annoying <esc> timeout
 set ttimeoutlen=100
 "set noesckeys
@@ -62,6 +56,11 @@ if has("autocmd")
   augroup fedora
   autocmd!
   autocmd BufNewFile *.spec 0r /usr/share/vim/vimfiles/template.spec
+  augroup END
+
+  augroup generic
+  autocmd!
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   augroup END
 endif
 
