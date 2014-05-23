@@ -4,3 +4,6 @@
 [submodule "ext/mc"]
 	path = ext/mc
 	url = https://github.com/peel/mc.git
+[submodule "ext/zsh-git-prompt"]
+	path = ext/zsh-git-prompt
+	url = https://github.com/olivierverdier/zsh-git-prompt
