@@ -1,15 +1,19 @@
-" execute pathogen#infect()
-
 " Use Vim defaults (much better!)
 set nocompatible
 
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
 
-Bundle 'tpope/vim-fugitive'
-Bundle 'altercation/vim-colors-solarized'
+Plugin 'gmarik/Vundle.vim'
+Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
+Plugin 'altercation/vim-colors-solarized'
+Plugin 'bling/vim-airline'
+Plugin 'jelera/vim-javascript-syntax'
+
+call vundle#end()
 
 " allow backspacing over everything in insert mode
 set bs=indent,eol,start		
@@ -18,6 +22,7 @@ set bs=indent,eol,start
 set ai
 set tabstop=4
 set shiftwidth=4
+set expandtab 
 
 set history=250
 
@@ -29,7 +34,6 @@ set number
 set ignorecase
 set smartcase
 
-set expandtab 
 syntax enable
 set background=dark
 "syntax on
@@ -41,7 +45,7 @@ set pastetoggle=<F2>
 set showmode
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=16 "256
+set t_Co=256 "256
 colorscheme solarized
 
 " get rid of annoying <esc> timeout
@@ -50,7 +54,6 @@ set ttimeoutlen=100
 
 " Always show statusline
 set laststatus=2
-
 
 if has("autocmd")
   augroup fedora
