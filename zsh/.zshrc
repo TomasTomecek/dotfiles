@@ -6,12 +6,38 @@ source ~/.dotfiles/common.sh
 autoload -U compinit promptinit
 compinit -u
 
-# completion configuration
+# COMPLETION
+zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
+# case insensitive completion
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
-
-# prompt / PS1
 zstyle ':completion::complete:*' use-cache 1
+# Errors format
+zstyle ':completion:*:corrections' format '%B%d (errors %e)%b'
+
+# generate descriptions with magic.
+zstyle ':completion:*' auto-description 'specify: %d'
+
+# Don't prompt for a huge list, page it!
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+
+# Don't prompt for a huge list, menu it!
+zstyle ':completion:*:default' menu 'select=0'
+
+# Have the newer files last so I see them first
+zstyle ':completion:*' file-sort modification reverse
+
+# color code completion!!!!  Wohoo!
+zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
+
+unsetopt LIST_AMBIGUOUS
+setopt  COMPLETE_IN_WORD
+setopt correctall
+
+# Separate man page sections.  Neat.
+zstyle ':completion:*:manuals' separate-sections true
+
 
 export READNULLCMD=less
 
