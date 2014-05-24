@@ -1,5 +1,9 @@
 
-local user='%{$fg[magenta]%}%n@%{$fg[magenta]%}%m%{$reset_color%}'
+if [[ $(whoami) -eq root ]] ; then
+    local user='%{$fg[red]%}%n %{$fg[white]%}at %{$fg[green]%}%m%{$reset_color%}'
+else
+    local user='%{$fg[yellow]%}%n %{$fg[white]%}at %{$fg[green]%}%m%{$reset_color%}'
+fi
 local pwd='%{$fg[blue]%}%~%{$reset_color%}'
 local rvm=''
 if which rvm-prompt &> /dev/null; then

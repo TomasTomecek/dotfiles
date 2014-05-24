@@ -2,6 +2,10 @@ source ~/.zsh-theme
 source ~/.dotfiles/ext/zsh-git-prompt/zshrc.sh
 source ~/.dotfiles/common.sh
 
+# separate words
+autoload -U select-word-style
+select-word-style bash
+
 # completion initialization
 autoload -U compinit promptinit
 compinit -u
@@ -32,12 +36,15 @@ zstyle ':completion:*' file-sort modification reverse
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
 unsetopt LIST_AMBIGUOUS
-setopt  COMPLETE_IN_WORD
+setopt COMPLETE_IN_WORD
 setopt correctall
+setopt GLOB_DOTS
 
 # Separate man page sections.  Neat.
 zstyle ':completion:*:manuals' separate-sections true
 
+# we want '#' during interactive session!
+setopt interactivecomments
 
 export READNULLCMD=less
 
