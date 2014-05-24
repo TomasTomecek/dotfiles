@@ -42,8 +42,8 @@ key[PageUp]=${terminfo[kpp]}
 key[PageDown]=${terminfo[knp]}
 
 # ^left ^right
-#bindkey ';5D' emacs-backward-word
-#bindkey ';5C' emacs-forward-word
+bindkey ';5D' emacs-backward-word
+bindkey ';5C' emacs-forward-word
 
 # setup key accordingly
 [[ -n "${key[Home]}"    ]]  && bindkey  "${key[Home]}"    beginning-of-line

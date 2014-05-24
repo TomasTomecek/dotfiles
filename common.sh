@@ -4,8 +4,9 @@
 
 # VARS
 
-export TERM="xterm-256color"
-export MC_SKIN=${HOME}/.dotfiles/ext/mc/ini
+# xterm breaks zsh
+#export TERM="xterm"
+export MC_SKIN=${HOME}/.dotfiles/ext/mc/solarized.ini
 export PAGER="/usr/bin/less"
 
 # ALIAS
