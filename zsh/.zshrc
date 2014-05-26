@@ -1,3 +1,4 @@
+source /etc/profile
 source ~/.zsh-theme
 source ~/.dotfiles/ext/zsh-git-prompt/zshrc.sh
 source ~/.dotfiles/common.sh
