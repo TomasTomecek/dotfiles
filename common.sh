@@ -23,7 +23,7 @@ alias gd="git diff"
 alias gc="git commit --verbose"
 alias gpr="git pull --rebase"
 alias rpmbc="rpmbuild -bs ./*.spec --define \"_sourcedir .\" --define \"_specdir .\" --define \"_srcrpmdir .\" --define \"_rpmdir .\""
-alias t="env TERM=screen-256color-bce tmux -2"
+alias t="env TERM=screen-256color tmux -2"
 #alias t="exec tmux -2"
 alias htop="TERM=screen htop"
 
