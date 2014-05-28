@@ -8,9 +8,11 @@
 #export TERM="xterm"
 export MC_SKIN=${HOME}/.dotfiles/ext/mc/solarized.ini
 export PAGER="/usr/bin/less"
+export LESS="-n -r"
 
 # ALIAS
 
+alias ls="ls --color=auto"
 alias llt="ls -lht --color=auto"
 alias ll="ls -lh --color=auto"
 alias lla="ls -lha --color=auto"
