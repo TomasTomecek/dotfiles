@@ -39,6 +39,8 @@ zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 unsetopt LIST_AMBIGUOUS
 setopt COMPLETE_IN_WORD
 # setopt correctall
+
+# include dotfiles in globbing
 setopt GLOB_DOTS
 
 # Separate man page sections.  Neat.
