@@ -2,6 +2,8 @@
 
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
+export PATH=${PATH}:~/.dotfiles/bin:~/.local/bin/
+
 # VARS
 
 # xterm breaks zsh
@@ -22,6 +24,9 @@ alias less="less -r"
 alias vs="vim ./*.spec"
 alias gs="git status"
 alias gd="git diff"
+alias gp="git push"
+alias gdw="git diff --color-words"
+alias gdc="git diff --color-words --word-diff-regex='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'"
 alias gc="git commit --verbose"
 alias gpr="git pull --rebase"
 alias rpmbc="rpmbuild -bs ./*.spec --define \"_sourcedir .\" --define \"_specdir .\" --define \"_srcrpmdir .\" --define \"_rpmdir .\""
