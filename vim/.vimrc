@@ -12,17 +12,18 @@ Plugin 'airblade/vim-gitgutter'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'jelera/vim-javascript-syntax'
+Plugin 'ntpeters/vim-better-whitespace'
 
 call vundle#end()
 
 " allow backspacing over everything in insert mode
-set bs=indent,eol,start		
+set bs=indent,eol,start
 
 " autoindent on
 set ai
 set tabstop=4
 set shiftwidth=4
-set expandtab 
+set expandtab
 
 set history=250
 
@@ -66,4 +67,3 @@ if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
   augroup END
 endif
-
