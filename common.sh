@@ -31,9 +31,18 @@ alias gc="git commit --verbose"
 alias gpr="git pull --rebase"
 alias rpmbc="rpmbuild -bs ./*.spec --define \"_sourcedir .\" --define \"_specdir .\" --define \"_srcrpmdir .\" --define \"_rpmdir .\""
 alias t="env TERM=screen-256color tmux -2"
-#alias t="exec tmux -2"
 alias htop="TERM=screen htop"
+
+# root aliases
+alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
+alias laptop="xrandr --auto && xrandr --output HDMI1 --off"
+alias pm-suspend="xscreensaver-command -lock ; pm-suspend"
 
 # COLORS
 eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-universal`
+
+# functions
+rpmw () { rpm -qf "$(which ${1})" }
+rpmg () { rpm -qa | grep "${1}" }
+fn () { find . -iname "${1}" }
 
