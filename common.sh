@@ -29,9 +29,13 @@ alias gdw="git diff --color-words"
 alias gdc="git diff --color-words --word-diff-regex='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'"
 alias gc="git commit --verbose"
 alias gpr="git pull --rebase"
-alias rpmbc="rpmbuild -bs ./*.spec --define \"_sourcedir .\" --define \"_specdir .\" --define \"_srcrpmdir .\" --define \"_rpmdir .\""
+alias rpmb="rpmbuild ./*.spec --define \"_sourcedir ${PWD}\" --define \"_specdir ${PWD}\" --define \"_srcrpmdir ${PWD}\" --define \"_rpmdir ${PWD}\""
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"
+alias mock6="mock -r rhel-6-x86_64"
+alias mock7="mock -r rhel-7-x86_64"
+alias mock20="mock -r fedora-20-x86_64"
+alias mockr="mock -r fedora-rawhide-x86_64"
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
@@ -43,12 +47,13 @@ eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-universal`
 # functions
 rpmw () { rpm -qf "$(which ${1})" }
 rpmg () { rpm -qa | grep "${1}" }
-fn () { find . -iname "*${1}*" }
+gg () { grep -inR "${1}" . }
+ff () { find . -iname "*${1}*" }
 laptop () {
     xrandr --auto
     for i in {1..3}
     do
-        xrandr --output HDMI${i} --off
+        xrandr --output VGA${i} --output HDMI${i} --off
     done
 }
 
