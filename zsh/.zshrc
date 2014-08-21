@@ -36,6 +36,7 @@ zstyle ':completion:*' file-sort modification reverse
 # color code completion!!!!  Wohoo!
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
+unsetopt nomatch  # zsh: no match found
 unsetopt LIST_AMBIGUOUS
 setopt COMPLETE_IN_WORD
 # setopt correctall
