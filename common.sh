@@ -22,6 +22,7 @@ alias vR="vim -R"
 alias tree="tree -C"
 alias less="less -r"
 alias vs="vim ./*.spec"
+alias vm="vim Makefile"
 alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
@@ -29,7 +30,6 @@ alias gdw="git diff --color-words"
 alias gdc="git diff --color-words --word-diff-regex='[^[:space:]]|([[:alnum:]]|UTF_8_GUARD)+'"
 alias gc="git commit --verbose"
 alias gpr="git pull --rebase"
-alias rpmb="rpmbuild ./*.spec --define \"_sourcedir ${PWD}\" --define \"_specdir ${PWD}\" --define \"_srcrpmdir ${PWD}\" --define \"_rpmdir ${PWD}\""
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"
 alias mock6="mock -r rhel-6-x86_64"
@@ -56,4 +56,10 @@ laptop () {
         xrandr --output VGA${i} --output HDMI${i} --off
     done
 }
-
+rpmb () {
+    rpmbuild ./*.spec --define "_sourcedir ${PWD}" \
+                      --define "_specdir ${PWD}" \
+                      --define "_srcrpmdir ${PWD}" \
+                      --define "_rpmdir ${PWD}" \
+                      ${@}
+}
