@@ -5,6 +5,7 @@
     ui = auto
 [core]
     editor = vim
+    excludesfile = ~/.gitign
 [alias]
     ci = commit --verbose
     st = status
