@@ -1,1 +1,3 @@
 *.sqlite
+# ignore ipython's DB
+ipython/.ipython/profile_default/db/
