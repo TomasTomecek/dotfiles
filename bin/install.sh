@@ -11,6 +11,6 @@ cd ~/.dotfiles/
 git submodule init
 git submodule update
 
-stow -v 2 tmux zsh bash vim ipyhton git
+stow -v 2 tmux zsh bash vim ipyhton git mail
 
 vim +PluginInstall +qall
