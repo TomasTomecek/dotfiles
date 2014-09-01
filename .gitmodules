@@ -7,3 +7,6 @@
 [submodule "ext/zsh-git-prompt"]
 	path = ext/zsh-git-prompt
 	url = https://github.com/olivierverdier/zsh-git-prompt
+[submodule "mail"]
+	path = mail
+	url = git@vm:/var/lib/git/dotfiles-mail.git
