@@ -2,7 +2,7 @@
 
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
-export PATH=${PATH}:~/.dotfiles/bin:~/.local/bin/
+export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/
 
 # VARS
 
