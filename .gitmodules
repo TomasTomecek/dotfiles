@@ -10,3 +10,6 @@
 [submodule "mail"]
 	path = mail
 	url = git@vm:/var/lib/git/dotfiles-mail.git
+[submodule "sbin"]
+	path = sbin
+	url = git@vm:/var/lib/git/dotfiles-sbin.git
