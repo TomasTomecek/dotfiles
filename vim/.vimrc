@@ -14,14 +14,10 @@ Plugin 'bling/vim-airline'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'davidhalter/jedi-vim'
+Plugin 'tpope/vim-sensible'
 
 call vundle#end()
 
-" allow backspacing over everything in insert mode
-set bs=indent,eol,start
-
-" autoindent on
-set ai
 set tabstop=4
 set shiftwidth=4
 set expandtab
@@ -30,7 +26,6 @@ set history=250
 
 set backupdir=/var/tmp
 
-set ruler
 set number
 
 set ignorecase
@@ -50,12 +45,7 @@ set showmode
 set t_Co=256 "256
 colorscheme solarized
 
-" get rid of annoying <esc> timeout
-set ttimeoutlen=100
 "set noesckeys
-
-" Always show statusline
-set laststatus=2
 
 if has("autocmd")
   augroup fedora
