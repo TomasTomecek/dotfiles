@@ -63,3 +63,11 @@ rpmb () {
                       --define "_rpmdir ${PWD}" \
                       ${@}
 }
+which-rpm-contains () {
+    echo "Searching for '${2}' in rpms matching '${1}'"
+    for rpm in `yum search all | egrep "${1}" | awk '{ print $1 }'`
+    do
+        file_list=$(rpm -ql ${rpm} | egrep "${2}")
+        [[ ${?} == 0 ]] && echo -n "'${rpm}' contains '${2}':\n${file_list}"
+    done
+}
