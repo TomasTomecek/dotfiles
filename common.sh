@@ -1,6 +1,6 @@
 # common stuff for both shells
 
-[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
+#[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 
 export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/
 
@@ -36,6 +36,7 @@ alias mock6="mock -r rhel-6-x86_64"
 alias mock7="mock -r rhel-7-x86_64"
 alias mock20="mock -r fedora-20-x86_64"
 alias mockr="mock -r fedora-rawhide-x86_64"
+alias sc="systemctl"
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
@@ -45,10 +46,10 @@ alias pm-suspend="xscreensaver-command -lock ; pm-suspend"
 eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-universal`
 
 # functions
-rpmw () { rpm -qf "$(which ${1})" }
-rpmg () { rpm -qa | grep "${1}" }
-gg () { grep -inR "${1}" . }
-ff () { find . -iname "*${1}*" }
+rpmw () { rpm -qf "$(which ${1})" ; }
+rpmg () { rpm -qa | grep "${1}" ; }
+gg () { grep -inR "${1}" . ; }
+ff () { find . -iname "*${1}*" ; }
 laptop () {
     xrandr --auto
     for i in {1..3}

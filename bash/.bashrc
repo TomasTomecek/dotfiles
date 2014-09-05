@@ -51,16 +51,16 @@ function enabled {
 function exitstatus {
     EXITSTATUS="$?"
     JOBS_COUNT=$(jobs | wc -l)
-    
+
     PS1=""
 
     if [ "$UID" -eq 0 ] ; then
         PS1=${PS1}"${RED}\u${OFF}@"
     fi
     PS1=${PS1}"${PURPLE}\h${OFF}"
-    
+
     PS1=${PS1}" ${BOLD}\w${OFF}$(__git_ps1 " (%s)")"
-    
+
     if [ "${EXITSTATUS}" -ne 0 ] ; then
         PS1=${PS1}"${RED} ${EXITSTATUS}${OFF}"
     fi
@@ -70,3 +70,5 @@ function exitstatus {
     PS1=${PS1}" \$ "
 }
 export PROMPT_COMMAND=exitstatus
+
+complete -F _systemctl sc
