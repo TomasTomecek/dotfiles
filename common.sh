@@ -54,7 +54,8 @@ laptop () {
     xrandr --auto
     for i in {1..3}
     do
-        xrandr --output VGA${i} --output HDMI${i} --off
+        # we dont care if the output doesn't exist
+        xrandr --output VGA${i} --output HDMI${i} --off &>/dev/null
     done
 }
 rpmb () {
