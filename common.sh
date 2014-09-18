@@ -1,7 +1,5 @@
 # common stuff for both shells
 
-#[[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
-
 export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/
 
 # VARS
@@ -23,6 +21,7 @@ alias tree="tree -C"
 alias less="less -r"
 alias vs="vim ./*.spec"
 alias vm="vim Makefile"
+alias vd="vim Dockerfile"
 alias gs="git status"
 alias gd="git diff"
 alias gp="git push"
@@ -37,6 +36,7 @@ alias mock7="mock -r rhel-7-x86_64"
 alias mock20="mock -r fedora-20-x86_64"
 alias mockr="mock -r fedora-rawhide-x86_64"
 alias sc="systemctl"
+alias d="docker"
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
