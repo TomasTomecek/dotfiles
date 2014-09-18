@@ -1,4 +1,4 @@
-source /etc/profile
+#source /etc/profile
 source ~/.zsh-theme
 source ~/.dotfiles/ext/zsh-git-prompt/zshrc.sh
 source ~/.dotfiles/common.sh
@@ -61,6 +61,24 @@ export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt no_share_history
+
+autoload -U add-zsh-hook
+source_env() {
+    nested() {
+        local CURRENT_DIR="$(realpath ${1})"
+        if [[ "${CURRENT_DIR}" = "/" ]] ; then
+            kill -INT $$
+        fi
+        local ENV_PATH="${CURRENT_DIR}/.env"
+        if [[ -f ${ENV_PATH} && -r ${ENV_PATH} ]]; then
+            source ${ENV_PATH}
+        else
+            nested "${CURRENT_DIR}/../"
+        fi
+    }
+    nested "."
+}
+add-zsh-hook chpwd source_env
 
 ## Key bindings
 #create a zkbd compatible hash;
