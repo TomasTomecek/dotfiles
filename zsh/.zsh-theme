@@ -3,7 +3,21 @@ if [[ $(whoami) == root ]] ; then
 else
     local user='%{$fg[cyan]%}%n %{$fg[white]%}at %{$fg[green]%}%m%{$reset_color%}'
 fi
-local pwd='%{$fg[blue]%}%~%{$reset_color%}'
+
+show_path(){
+  local pwd="${PWD/#$HOME/~}"
+  if [[ "$pwd" == (#m)[/~] ]]; then
+    _prompt_pwd="$MATCH"
+    unset MATCH
+  else
+    _prompt_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+  fi
+  local c_prompt_pwd="%{$fg[blue]%}${_prompt_pwd}%{$reset_color%}"
+  echo "${c_prompt_pwd}"
+}
+# lame path
+# local p='%{$fg[blue]%}%~%{$reset_color%}'
+
 local rvm=''
 if which rvm-prompt &> /dev/null; then
   rvm='%{$fg[green]%}‹$(rvm-prompt i v g)›%{$reset_color%}'
@@ -15,7 +29,8 @@ fi
 local jobs_d='%(1j.%{$fg[white]%}J %j %{$reset_color%}.)'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_info='$(git_super_status)'
+local path_info='$(show_path)'
 
 # print bell when command ends
-PROMPT="%{$(echo "\a")%}${user} ${pwd} "
+PROMPT="%{$(echo "\a")%}${user} ${path_info} "
 RPROMPT="${jobs_d} ${return_code} ${git_info}"
