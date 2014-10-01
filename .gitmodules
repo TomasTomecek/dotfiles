@@ -13,3 +13,6 @@
 [submodule "sbin"]
 	path = sbin
 	url = git@vm:/var/lib/git/dotfiles-sbin.git
+[submodule "xfce4"]
+	path = xfce4
+	url = git@vm:/var/lib/git/dotfiles-xfce4.git
