@@ -6,7 +6,7 @@ This is configuration of my system.
 installation
 ============
 
-    curl -sSL https://raw.githubusercontent.com/TomasTomecek/dotfiles/master/bin/install.sh | bash
+    curl -sSL https://raw.githubusercontent.com/TomasTomecek/dotfiles/master/bin/install.sh | bash -x
 
 FIXUPS
 ======
