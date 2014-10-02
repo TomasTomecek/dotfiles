@@ -10,7 +10,9 @@ show_path(){
     _prompt_pwd="$MATCH"
     unset MATCH
   else
-    _prompt_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+    #_prompt_pwd="${${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}%/}/${pwd:t}"
+    #_prompt_pwd="${${(@j:/:M)${(@s:/:)pwd}##.#?}:h}/${pwd:t}"
+    _prompt_pwd=$(print $PWD | sed -e "s|^$HOME|~|" -e 's|\(\.\{0,1\}[^/]\)[^/]*/|\1/|g')
   fi
   local c_prompt_pwd="%{$fg[blue]%}${_prompt_pwd}%{$reset_color%}"
   echo "${c_prompt_pwd}"
