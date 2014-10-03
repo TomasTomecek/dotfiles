@@ -73,3 +73,7 @@ which-rpm-contains () {
         [[ ${?} == 0 ]] && echo -n "'${rpm}' contains '${2}':\n${file_list}"
     done
 }
+# Create a directory and cd into it
+function mcd() {
+    mkdir "${1}" && cd "${1}"
+}
