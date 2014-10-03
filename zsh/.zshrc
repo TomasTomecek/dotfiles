@@ -37,8 +37,9 @@ zstyle ':completion:*' file-sort modification reverse
 zstyle ':completion:*' list-colors "=(#b) #([0-9]#)*=36=31"
 
 unsetopt nomatch  # zsh: no match found
-unsetopt LIST_AMBIGUOUS
-setopt COMPLETE_IN_WORD
+setopt complete_in_word
+setopt always_to_end
+setopt always_last_prompt
 # setopt correctall
 
 # include dotfiles in globbing
@@ -62,6 +63,7 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt no_share_history
 
+# source .env if there is one
 autoload -U add-zsh-hook
 source_env() {
     nested() {

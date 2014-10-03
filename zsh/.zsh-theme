@@ -33,6 +33,15 @@ local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local git_info='$(git_super_status)'
 local path_info='$(show_path)'
 
+print_loaded_project(){
+    local prj=""
+    if [[ -n "${SOURCED_PROJECT}" ]] ; then
+        prj="[${SOURCED_PROJECT}] "
+    fi
+    echo "${prj}"
+}
+local loaded_project='$(print_loaded_project)'
+
 # print bell when command ends
-PROMPT="%{$(echo "\a")%}${user} ${path_info} "
+PROMPT="%{$(echo "\a")%}${loaded_project}${user} ${path_info} "
 RPROMPT="${jobs_d} ${return_code} ${git_info}"
