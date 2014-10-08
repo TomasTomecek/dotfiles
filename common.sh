@@ -77,3 +77,7 @@ which-rpm-contains () {
 function mcd() {
     mkdir "${1}" && cd "${1}"
 }
+dssh() {
+    PID=$(docker inspect --format {{.State.Pid}} $1)
+    nsenter --target $PID --mount --uts --ipc --net --pid env -i - $(sudo cat /proc/$PID/environ | xargs -n 1 -0) /bin/bash
+}
