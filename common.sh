@@ -9,6 +9,8 @@ export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/
 export MC_SKIN=${HOME}/.dotfiles/ext/mc/solarized.ini
 export PAGER="/usr/bin/less"
 export LESS="-n -r"
+# <3 symlinks
+export AUTOJUMP_KEEP_SYMLINKS=1
 
 # ALIAS
 
