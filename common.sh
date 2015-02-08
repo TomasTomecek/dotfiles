@@ -9,7 +9,7 @@ export EDITOR="vim"
 #export TERM="xterm"
 export MC_SKIN=${HOME}/.dotfiles/ext/mc/solarized.ini
 export PAGER="/usr/bin/less"
-export LESS="-n -r"
+export LESS="-n -r -X"
 # <3 symlinks
 export AUTOJUMP_KEEP_SYMLINKS=1
 export GOPATH="${HOME}/dev/go:${GOPATH}"
