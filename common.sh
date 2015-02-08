@@ -1,6 +1,7 @@
 # common stuff for both shells
 
 export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/
+export EDITOR="vim"
 
 # VARS
 
