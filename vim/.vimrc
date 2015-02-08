@@ -15,6 +15,8 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-sensible'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'fatih/vim-go'
 
 call vundle#end()
 
