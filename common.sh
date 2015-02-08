@@ -84,5 +84,7 @@ function mcd() {
 }
 dssh() {
     PID=$(docker inspect --format {{.State.Pid}} $1)
+    echo "Attaching to ${PID}"
     nsenter --target $PID --mount --uts --ipc --net --pid env -i - $(sudo cat /proc/$PID/environ | xargs -n 1 -0) /bin/bash
+    #nsenter --target $PID --mount --uts --ipc --net --pid env -i /bin/bash
 }
