@@ -1,0 +1,34 @@
+{
+	"net": {
+		"interfaces": {
+			"enp0s25": {
+				"alias": "E",
+				"label_color_fg": "white",
+				"label_color_bg": "default",
+				"address_color_fg": "colour4",
+				"address_color_bg": "default"
+			},
+			"enp5s0": {
+				"alias": "E",
+				"label_color_fg": "white",
+				"label_color_bg": "default",
+				"address_color_fg": "colour4",
+				"address_color_bg": "default"
+			},
+			"wlp3s0": {
+				"alias": "W",
+				"label_color_fg": "white",
+				"label_color_bg": "default",
+				"address_color_fg": "green",
+				"address_color_bg": "default"
+			},
+			"tun0": {
+				"alias": "V",
+				"label_color_fg": "white",
+				"label_color_bg": "default",
+				"address_color_fg": "colour3",
+				"address_color_bg": "default"
+			}
+		}
+	}
+}
