@@ -95,3 +95,4 @@ dssh() {
     nsenter --target $PID --mount --uts --ipc --net --pid env -i - $(sudo cat /proc/$PID/environ | xargs -n 1 -0) /bin/bash
     #nsenter --target $PID --mount --uts --ipc --net --pid env -i /bin/bash
 }
+nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
