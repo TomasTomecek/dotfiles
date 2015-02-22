@@ -9,7 +9,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
-Plugin 'altercation/vim-colors-solarized'
+Plugin 'jwhitley/vim-colors-solarized'
 Plugin 'bling/vim-airline'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ntpeters/vim-better-whitespace'
