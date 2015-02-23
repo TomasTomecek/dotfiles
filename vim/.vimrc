@@ -17,6 +17,7 @@ Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-sensible'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
+Plugin 'scrooloose/syntastic'
 
 call vundle#end()
 
@@ -53,6 +54,12 @@ nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_pylint_args = '--rcfile=/home/ttomecek/.pylintrc' 
 
 "set noesckeys
 
