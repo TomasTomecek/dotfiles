@@ -44,6 +44,8 @@ filetype plugin on
 set modeline
 set pastetoggle=<F2>
 set showmode
+"don't complain when changing buffers via :buffer
+set hidden
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256 "256
