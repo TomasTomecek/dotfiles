@@ -18,6 +18,7 @@ Plugin 'tpope/vim-sensible'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/syntastic'
+Plugin 'Lokaltog/vim-easymotion'
 
 call vundle#end()
 
