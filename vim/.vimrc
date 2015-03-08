@@ -56,11 +56,13 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+" checks take too long: let's run them adhoc with :SyntasticCheck
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_python_pylint_args = '--rcfile=/home/ttomecek/.pylintrc' 
+let g:syntastic_python_pylint_args = '--rcfile=/home/ttomecek/.pylintrc'
+let g:syntastic_mode_map = {"mode": "passive"}
 
 "set noesckeys
 
