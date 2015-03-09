@@ -15,10 +15,11 @@ Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'tpope/vim-sensible'
-Plugin 'Valloric/YouCompleteMe'
+" Plugin 'Valloric/YouCompleteMe'
 Plugin 'fatih/vim-go'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
+Plugin 'Shougo/neocomplete.vim'
 
 call vundle#end()
 
