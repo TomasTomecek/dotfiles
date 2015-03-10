@@ -6,6 +6,8 @@ c.InteractiveShellApp.exec_lines = [
 	'import re',
 	'import json',
 	'import subprocess',
+	'import docker',
+	'import requests',
 ]
 c.InteractiveShellApp.extensions = ['autoreload',]
 c.InteractiveShellApp.exec_files = ['init.ipy']
