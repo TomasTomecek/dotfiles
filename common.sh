@@ -23,6 +23,7 @@ alias ll="ls -lh --color=auto"
 alias lla="ls -lha --color=auto"
 alias vR="vim -R"
 alias tree="tree -C"
+vim() { if [ -f /usr/bin/vimx ] ; then /usr/bin/vimx ${@} ; else /usr/bin/vim ${@} ; fi }
 alias vs="vim ./*.spec"
 alias vm="vim Makefile"
 alias vd="vim Dockerfile"
