@@ -47,6 +47,7 @@ alias sc="systemctl"
 
 alias d="docker"
 alias di="docker images"
+alias dit="docker images --tree"
 alias dp="docker ps"
 alias dpa="docker ps -a"
 alias dr="docker run"
