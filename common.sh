@@ -51,6 +51,8 @@ alias dit="docker images --tree"
 alias dp="docker ps"
 alias dpa="docker ps -a"
 alias dr="docker run"
+drm() { docker rm -f $(docker ps -a -q) }
+drmi() { docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
