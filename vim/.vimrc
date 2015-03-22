@@ -86,6 +86,11 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+" easymotion
+imap <C-F>w <C-o><leader><leader>w
+imap <C-F>F <C-o><leader><leader>F
+imap <C-F>f <C-o><leader><leader>f
+
 "set noesckeys
 
 if has("autocmd")
