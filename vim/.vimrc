@@ -52,12 +52,14 @@ set hidden
 set t_Co=256 "256
 colorscheme solarized
 
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+nnoremap <C-j> <C-W><C-J>
+nnoremap <C-k> <C-W><C-K>
+nnoremap <C-l> <C-W><C-L>
+nnoremap <C-h> <C-W><C-H>
 set splitbelow
 set splitright
+
+nnoremap ; :
 
 " checks take too long: let's run them adhoc with :SyntasticCheck
 let g:syntastic_always_populate_loc_list = 1
@@ -78,6 +80,11 @@ let g:neocomplete#enable_smart_case = 1
 " Set minimum syntax keyword length.
 let g:neocomplete#sources#syntax#min_keyword_length = 2
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+" when completing python, don't insert completion automatically
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#completions_enabled = 0
+
+set list
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
