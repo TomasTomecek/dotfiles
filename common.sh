@@ -27,6 +27,7 @@ vim() { if [ -f /usr/bin/vimx ] ; then /usr/bin/vimx ${@} ; else /usr/bin/vim ${
 alias vs="vim ./*.spec"
 alias vm="vim Makefile"
 alias vd="vim Dockerfile"
+alias v="vim"
 
 alias g="git"
 alias gs="git status"
@@ -44,6 +45,10 @@ alias mock7="mock -r rhel-7-x86_64"
 alias mock20="mock -r fedora-20-x86_64"
 alias mockr="mock -r fedora-rawhide-x86_64"
 alias sc="systemctl"
+alias s="systemctl"
+alias sr="systemctl restart"
+alias sst="systemctl status"
+alias stp="systemctl stop"
 
 alias d="docker"
 alias di="docker images"
