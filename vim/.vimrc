@@ -59,8 +59,6 @@ nnoremap <C-h> <C-W><C-H>
 set splitbelow
 set splitright
 
-nnoremap ; :
-
 " checks take too long: let's run them adhoc with :SyntasticCheck
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 0
