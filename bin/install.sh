@@ -4,7 +4,7 @@ mkdir -p ~/.vim/bundle/
 
 git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-git clone git@github.com:TomasTomecek/dotfiles.git ~/.dotfiles/
+git clone https://github.com/TomasTomecek/dotfiles.git ~/.dotfiles/
 
 cd ~/.dotfiles/
 
