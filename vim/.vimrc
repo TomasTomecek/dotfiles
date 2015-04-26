@@ -20,6 +20,7 @@ Plugin 'fatih/vim-go'
 Plugin 'scrooloose/syntastic'
 Plugin 'Lokaltog/vim-easymotion'
 Plugin 'Shougo/neocomplete.vim'
+Plugin 'kien/ctrlp.vim'
 
 call vundle#end()
 
@@ -90,6 +91,10 @@ autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+
+autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
+autocmd FileType \(sh\|yaml\|javscript\) setlocal shiftwidth=2
+autocmd FileType \(sh\|yaml\|javscript\) setlocal tabstop=2
 
 " easymotion
 imap <C-F>w <C-o><leader><leader>w
