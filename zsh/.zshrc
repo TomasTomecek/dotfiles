@@ -17,7 +17,8 @@ zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 # case insensitive completion
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*:warnings' format '%BSorry, no matches for: %d%b'
-zstyle ':completion::complete:*' use-cache 1
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path ~/.zsh/cache
 # Errors format
 zstyle ':completion:*:corrections' format '%B%d (errors %e)%b'
 
