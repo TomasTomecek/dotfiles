@@ -95,6 +95,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 autocmd FileType \(sh\|yaml\|javscript\) setlocal shiftwidth=2
 autocmd FileType \(sh\|yaml\|javscript\) setlocal tabstop=2
+autocmd FileType mail setlocal textwidth=80
+autocmd FileType mail setlocal spell spelllang=en
 
 " easymotion
 imap <C-F>w <C-o><leader><leader>w
