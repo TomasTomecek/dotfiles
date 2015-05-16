@@ -49,6 +49,12 @@ set showmode
 "don't complain when changing buffers via :buffer
 set hidden
 
+silent !mkdir -p $HOME/.vim/swapfiles/ > /dev/null 2>&1
+set directory=$HOME/.vim/swapfiles//
+silent !mkdir -p $HOME/.vim/undofiles/ > /dev/null 2>&1
+set undodir=$HOME/.vim/undofiles//
+set undofile
+
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256 "256
 colorscheme solarized
