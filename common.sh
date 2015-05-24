@@ -23,6 +23,8 @@ alias ll="ls -lh --color=auto"
 alias lla="ls -lha --color=auto"
 alias vR="vim -R"
 alias tree="tree -C"
+
+# vim aliases/functions
 vim() { if [ -f /usr/bin/vimx ] ; then /usr/bin/vimx ${@} ; else /usr/bin/vim ${@} ; fi }
 alias vs="vim ./*.spec"
 alias vm="vim Makefile"
@@ -31,6 +33,7 @@ alias vc="vim ./docker-compose.*"
 alias vr="vim README*"
 alias v="vim"
 
+# git aliases
 alias g="git"
 alias gs="git status"
 alias gd="git diff"
@@ -40,7 +43,10 @@ alias gdc="git diff --color-words --word-diff-regex='[^[:space:]]|([[:alnum:]]|U
 alias gc="git commit --verbose"
 alias gpr="git pull --rebase"
 alias gau="git add --verbose --update -- ."
-alias gr="git reset HEAD"
+alias gr="git reset"
+alias grh="git reset --hard"
+alias grho="git reset --hard origin/master"
+alias gri="git rebase -i"
 
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"

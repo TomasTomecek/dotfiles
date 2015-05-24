@@ -14,10 +14,13 @@
     pu = push
     a = add
     d = diff
+    r = reset
+    rb = rebase
+    s = stash
 [push]
     default = current
 [diff]
-	tool = meld
+    tool = vimdiff
 [tig "bind"]
     status = C !git commit --verbose
 
