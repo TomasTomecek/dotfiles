@@ -21,6 +21,8 @@
     default = current
 [diff]
     tool = vimdiff
+[difftool]
+    prompt = false
 [tig "bind"]
     status = C !git commit --verbose
 
