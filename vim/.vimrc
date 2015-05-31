@@ -103,6 +103,7 @@ autocmd FileType \(sh\|yaml\|javscript\) setlocal shiftwidth=2
 autocmd FileType \(sh\|yaml\|javscript\) setlocal tabstop=2
 autocmd FileType mail setlocal textwidth=80
 autocmd FileType mail setlocal spell spelllang=en
+autocmd FileType go setlocal nolist  " go uses /t
 
 " easymotion
 imap <C-F>w <C-o><leader><leader>w
