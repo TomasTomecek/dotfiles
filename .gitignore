@@ -2,3 +2,4 @@
 # ignore ipython's DB
 ipython/.ipython/profile_default/db/
 bin/tmux-top
+zsh/.zsh/cache/
