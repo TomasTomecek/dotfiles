@@ -87,7 +87,7 @@ laptop () {
     for i in {1..3}
     do
         # we dont care if the output doesn't exist
-        xrandr --output VGA${i} --output HDMI${i} --off &>/dev/null
+        xrandr --output VGA${i} --off --output HDMI${i} --off &>/dev/null
     done
 }
 rpmb () {
@@ -109,10 +109,7 @@ which-rpm-contains () {
 function mcd() {
     mkdir "${1}" && cd "${1}"
 }
-dssh() {
-    PID=$(docker inspect --format {{.State.Pid}} $1)
-    echo "Attaching to ${PID}"
-    nsenter --target $PID --mount --uts --ipc --net --pid env -i - $(sudo cat /proc/$PID/environ | xargs -n 1 -0) /bin/bash
-    #nsenter --target $PID --mount --uts --ipc --net --pid env -i /bin/bash
-}
 nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
+
+# show random aliases, as a reminder
+alias | shuf -n 5
