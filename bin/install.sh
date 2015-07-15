@@ -1,7 +1,7 @@
 #!/bin/bash
 
-which git 2>/dev/null || echo "Can't find git binary." && exit 1
-which stow 2>/dev/null || echo "Can't find stow binary." && exit 1
+which git 2>/dev/null || {echo "Can't find git binary." && exit 1}
+which stow 2>/dev/null || {echo "Can't find stow binary." && exit 1}
 
 mkdir -p ~/.dotfiles/
 mkdir -p ~/.vim/bundle/
