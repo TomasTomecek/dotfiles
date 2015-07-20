@@ -47,6 +47,7 @@ alias gr="git reset"
 alias grh="git reset --hard"
 alias grho="git reset --hard origin/master"
 alias gri="git rebase -i"
+alias grc="git rebase --continue"
 
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"
