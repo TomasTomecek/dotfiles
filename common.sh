@@ -60,6 +60,7 @@ alias sr="systemctl restart"
 alias s="systemctl status"
 alias sta="systemctl start"
 alias stp="systemctl stop"
+alias ju="journalctl"
 
 alias d="docker"
 alias di="docker images"
