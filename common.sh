@@ -46,6 +46,7 @@ alias gau="git add --verbose --update -- ."
 alias gr="git reset"
 alias grh="git reset --hard"
 alias grho="git reset --hard origin/master"
+alias grhu="git reset --hard upstream/master"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
 
@@ -68,6 +69,7 @@ alias dit="docker images --tree"
 alias dp="docker ps"
 alias dpa="docker ps -a"
 alias dr="docker run"
+alias c="docker-compose"
 drm() { docker rm -f $(docker ps -a -q) }
 drmi() { docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
 
