@@ -104,6 +104,33 @@ autocmd FileType \(sh\|yaml\|javscript\) setlocal tabstop=2
 autocmd FileType mail setlocal textwidth=80
 autocmd FileType mail setlocal spell spelllang=en
 autocmd FileType go setlocal nolist  " go uses /t
+au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
+
+" Don't save backups of *.gpg files
+set backupskip+=*.gpg
+
+augroup encrypted
+  au!
+  " Disable swap files, and set binary file format before reading the file
+  autocmd BufReadPre,FileReadPre *.gpg
+    \ setlocal noswapfile bin
+  " Decrypt the contents after reading the file, reset binary file format
+  " and run any BufReadPost autocmds matching the file name without the .gpg
+  " extension
+  autocmd BufReadPost,FileReadPost *.gpg
+    \ execute "%!gpg --decrypt --default-recipient-self" |
+    \ setlocal nobin |
+    \ execute "doautocmd BufReadPost " . expand("%:r")
+  " Set binary file format and encrypt the contents before writing the file
+  autocmd BufWritePre,FileWritePre *.gpg
+    \ setlocal bin |
+    \ '[,']!gpg --encrypt --default-recipient-self
+  " After writing the file, do an :undo to revert the encryption in the
+  " buffer, and reset binary file format
+  autocmd BufWritePost,FileWritePost *.gpg
+    \ silent u |
+    \ setlocal nobin
+augroup END
 
 " easymotion
 imap <C-F>w <C-o><leader><leader>w
