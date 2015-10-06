@@ -65,7 +65,7 @@ alias ju="journalctl"
 
 alias d="docker"
 alias di="docker images"
-alias dit="docker images --tree"
+alias dit="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t"
 alias dp="docker ps"
 alias dpa="docker ps -a"
 alias dr="docker run"
