@@ -12,7 +12,7 @@ export PAGER="/usr/bin/less"
 export LESS="-n -r -X"
 # <3 symlinks
 export AUTOJUMP_KEEP_SYMLINKS=1
-export GOPATH="${HOME}/dev/go:${GOPATH}"
+export GOPATH="${HOME}/dev/go"
 export GOBIN="${HOME}/dev/go/bin"
 
 # ALIAS
