@@ -71,6 +71,8 @@ alias dp="docker ps"
 alias dpa="docker ps -a"
 alias dr="docker run"
 alias drt="docker run --rm -ti"
+alias de="docker exec"
+alias det="docker exec -ti"
 alias c="docker-compose"
 drm() { docker rm -f $(docker ps -a -q) }
 drmi() { docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
