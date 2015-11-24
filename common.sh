@@ -25,6 +25,7 @@ alias ll="ls -lh --color=auto"
 alias lla="ls -lha --color=auto"
 alias vR="vim -R"
 alias tree="tree -C"
+alias rsync="rsync -P"
 
 # vim aliases/functions
 vim() { if [ -f /usr/bin/vimx ] ; then /usr/bin/vimx ${@} ; else /usr/bin/vim ${@} ; fi }
