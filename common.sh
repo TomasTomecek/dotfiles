@@ -15,6 +15,8 @@ export AUTOJUMP_KEEP_SYMLINKS=1
 export GOPATH="${HOME}/dev/go"
 export GOBIN="${HOME}/dev/go/bin"
 
+export PYTHONDONTWRITEBYTECODE="fuck-yes"
+
 # ALIAS
 
 alias ls="ls --color=auto"
