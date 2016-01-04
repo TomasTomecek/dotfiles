@@ -67,6 +67,7 @@ alias s="systemctl status"
 alias sta="systemctl start"
 alias stp="systemctl stop"
 alias ju="journalctl"
+alias sysdig="docker run -it --rm --privileged -v /:/host:ro -e TERM=$TERM sysdig/sysdig csysdig"
 
 alias d="docker"
 alias di="docker images"
