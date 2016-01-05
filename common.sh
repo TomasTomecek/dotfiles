@@ -52,6 +52,7 @@ alias gr="git rebase"
 alias grh="git reset --hard"
 alias grho="git reset --hard origin/master"
 alias grhu="git reset --hard upstream/master"
+alias grb="git rebase"
 alias gri="git rebase -i"
 alias grc="git rebase --continue"
 
