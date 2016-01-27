@@ -46,6 +46,7 @@ alias gdc="git diff --color-words --word-diff-regex='[^[:space:]]|([[:alnum:]]|U
 alias gc="git commit --verbose"
 alias gpr="git pull --rebase"
 alias gpum="git pull --rebase upstream master"
+alias gpom="git pull --rebase origin master"
 alias gau="git add --verbose --update -- ."
 alias gaa="git add --verbose --all -- ."
 alias gr="git rebase"
