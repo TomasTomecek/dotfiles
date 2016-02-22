@@ -17,6 +17,8 @@ export GOBIN="${HOME}/dev/go/bin"
 
 export PYTHONDONTWRITEBYTECODE="fuck-yes"
 
+SSH_AUTH_SOCK="~/.gnupg/S.gpg-agent.ssh"
+
 # ALIAS
 
 alias ls="ls --color=auto"
