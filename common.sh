@@ -61,6 +61,8 @@ alias gri="git rebase -i"
 alias grc="git rebase --continue"
 alias gb="git checkout -B"
 alias grau="git remote add upstream"
+alias grs="git remote set-url"
+alias grv="git remote -v"
 alias gcl="git clone"
 
 alias t="env TERM=screen-256color tmux -2"
