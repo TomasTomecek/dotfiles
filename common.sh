@@ -60,6 +60,7 @@ alias grc="git rebase --continue"
 alias gb="git checkout -B"
 alias grau="git remote add upstream"
 alias grs="git remote set-url"
+alias gra="git remote add"
 alias grv="git remote -v"
 alias gcl="git clone"
 
