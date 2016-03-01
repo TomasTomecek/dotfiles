@@ -63,6 +63,7 @@ alias grs="git remote set-url"
 alias gra="git remote add"
 alias grv="git remote -v"
 alias gcl="git clone"
+alias gfa="git fetch --all"
 
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"
