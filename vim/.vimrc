@@ -74,6 +74,8 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_python_pylint_args = '--rcfile=/home/ttomecek/.pylintrc'
 let g:syntastic_mode_map = {"mode": "passive"}
 let g:syntastic_python_checkers = ["pylint"]
+" let g:syntastic_pylint_exec = '/usr/bin/python3-pylint'
+" let g:syntastic_python_pylint_exec = '/usr/bin/python3-pylint'
 
 " neocomplete
 " Disable AutoComplPop.
