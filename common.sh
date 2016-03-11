@@ -73,9 +73,9 @@ alias mock7="mock -r rhel-7-x86_64"
 alias mock20="mock -r fedora-20-x86_64"
 alias mockr="mock -r fedora-rawhide-x86_64"
 alias sc="systemctl"
-alias sr="systemctl restart"
+sr () { systemctl restart ${@} ; systemctl status ${@} }
+sta () { systemctl start ${@} ; systemctl status ${@} }
 alias s="systemctl status"
-alias sta="systemctl start"
 alias stp="systemctl stop"
 alias ju="journalctl"
 alias sysdig="docker run -it --rm --privileged -v /:/host:ro -e TERM=$TERM sysdig/sysdig csysdig"
