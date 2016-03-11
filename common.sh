@@ -136,4 +136,4 @@ function mcd() {
 nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
 
 # show random aliases, as a reminder
-alias | shuf -n 5
+# alias | shuf -n 5
