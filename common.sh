@@ -36,6 +36,8 @@ alias vd="vim Dockerfile"
 alias vc="vim ./docker-compose.*"
 alias vr="vim README*"
 alias v="vim"
+# halp!!1!
+alias h="less ~/.dotfiles/mysterious-keybinds/README.md"
 
 # git aliases
 alias g="git"

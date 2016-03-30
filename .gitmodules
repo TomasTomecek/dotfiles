@@ -13,3 +13,6 @@
 [submodule "sbin"]
 	path = sbin
 	url = git@vm:/var/lib/git/dotfiles-sbin.git
+[submodule "mysterious-keybinds"]
+	path = mysterious-keybinds
+	url = git@github.com:TomasTomecek/mysterious-keybinds
