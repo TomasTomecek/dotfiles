@@ -33,7 +33,7 @@ vim() { if [ -f /usr/bin/vimx ] ; then /usr/bin/vimx ${@} ; else /usr/bin/vim ${
 alias vs="vim ./*.spec"
 alias vm="vim Makefile"
 alias vd="vim Dockerfile"
-alias vc="vim ./docker-compose.*"
+alias vc="vim ./docker-compose.yml"
 alias vr="vim README*"
 alias v="vim"
 # halp!!1!
