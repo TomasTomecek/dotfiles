@@ -68,6 +68,7 @@ alias gra="git remote add"
 alias grv="git remote -v"
 alias gcl="git clone"
 alias gfa="git fetch --all"
+alias gsua="git submodule foreach git pull --rebase origin master"
 
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"
