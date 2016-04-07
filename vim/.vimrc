@@ -11,6 +11,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'jwhitley/vim-colors-solarized'
 Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'ntpeters/vim-better-whitespace'
 Plugin 'davidhalter/jedi-vim'
@@ -92,6 +93,9 @@ let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
 
 set list
+
+" airline
+let g:airline#extensions#tabline#enabled = 1
 
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
