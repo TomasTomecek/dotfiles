@@ -25,4 +25,7 @@
     prompt = false
 [tig "bind"]
     status = C !git commit --verbose
-
+[merge]
+    tool = vimdiff
+    conflictstyle = diff3
+    prompt = false
