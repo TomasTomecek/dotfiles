@@ -1,0 +1,75 @@
+#!/usr/bin/python3
+
+"""
+  image=${1:-fedora:23}  # default f23
+  srpm=$(fedpkg srpm) | tail -n 1
+  rm ./*.src.rpm
+  
+  docker run -ti -v $PWD:/src fedora:23 bash
+
+"""
+
+import os
+import shutil
+import sys
+import subprocess
+from glob import glob
+
+
+inner_script = """\
+dnf install -y dnf-plugins-core rpm-build && \
+cd /src && \
+dnf builddep -y ./*.src.rpm && \
+rpmbuild --rebuild {srpm}\
+"""
+
+
+def get(l, k, d):
+    try:
+        return l[k]
+    except IndexError:
+        return d
+
+
+def rm_srpms():
+    for p in glob("./*.src.rpm"):
+        os.remove(p)
+
+
+def get_srpm_path():
+    out = subprocess.check_output(["fedpkg", "srpm"])
+    return os.path.basename(out.strip().split(b" ", 1)[1]).decode("utf-8")
+
+
+image = get(sys.argv, 1, "fedora:23")
+rm_srpms()
+srpm = get_srpm_path()
+
+import docker
+d = docker.AutoVersionClient()
+c = d.create_container(image,
+                       command="bash -c \'%s\'" % inner_script.format(srpm=srpm), tty=True,
+                       volumes=["/src"],
+                       host_config=d.create_host_config(binds=["%s:/src" % os.getcwd()]))
+d.start(c)
+try:
+    for line in d.logs(c, stream=True, follow=True):
+        print(line, end="")
+except KeyboardInterrupt:
+    d.kill(c)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
