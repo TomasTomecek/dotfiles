@@ -139,5 +139,14 @@ mcd() {
 }
 nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
 
+test-build() {
+  rm ./*.src.rpm
+  fedpkg srpm
+  dnf install dnf-plugins-core rpm-build
+  cd /src
+  dnf builddep -y ./*.src.rpm
+  docker run -ti -v $PWD:/src fedora:23 bash
+}
+
 # show random aliases, as a reminder
 # alias | shuf -n 5
