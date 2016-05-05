@@ -134,7 +134,7 @@ which-rpm-contains () {
     done
 }
 # Create a directory and cd into it
-function mcd() {
+mcd() {
     mkdir "${1}" && cd "${1}"
 }
 nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | column -t; }
