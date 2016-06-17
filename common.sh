@@ -70,6 +70,7 @@ alias grv="git remote -v"
 alias gcl="git clone"
 alias gfa="git fetch --all"
 alias gsp="git submodule foreach git pull --rebase origin master"
+gi() {git init . && git add . && git commit -m ${1:-init} >/dev/null }
 
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"
