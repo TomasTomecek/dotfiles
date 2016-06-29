@@ -1,0 +1,52 @@
+#!/usr/bin/python3
+
+"""
+Nifty utility for updating RPMs:
+1. download tarball
+2. do `fedpkg new-sources`
+3. do `rpmdev-bumpspec`
+"""
+
+import subprocess
+from glob import glob
+
+
+def find_specfile():
+    return glob("./*.spec")[0]
+
+
+def find_tarball_filename(spec_path):
+    cmd = ["spectool",
+           "-S",  # only sources
+           spec_path]
+    out = subprocess.check_output(cmd)
+    path = out.rsplit(b"/", 1)[1]
+    return path.strip()
+
+def download_tarball(spec_path):
+    cmd = ["spectool",
+           "-g",  # download files from URLs
+           "-S",  # only sources
+           spec_path]
+    subprocess.check_call(cmd)
+
+
+def submit_tarball(tarball_filename):
+    cmd = ["fedpkg",
+           "new-sources",
+           tarball_filename]
+    subprocess.check_call(cmd)
+
+
+def bump_spec(spec_path):
+    cmd = ["rpmdev-bumpspec",
+           spec_path]
+    subprocess.check_call(cmd)
+
+
+spec = find_specfile()
+tarball_filename = find_tarball_filename(spec)
+download_tarball(spec)
+submit_tarball(tarball_filename)
+bump_spec(spec)
+
