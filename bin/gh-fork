@@ -1,0 +1,81 @@
+#!/usr/bin/python3
+
+"""
+1. Fork given repo
+   a) if there's fork, skip
+2. Clone fork
+3. Cd to the repo
+4. Set remote upstream
+"""
+
+import os
+import sys
+import logging
+import subprocess
+
+import github
+
+
+logger = logging.getLogger("gh-fork")
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler(sys.stderr)
+handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s %(levelname)-6s %(message)s', '%H:%M:%S')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+
+def is_fork_of(user_repo, target_repo):
+    """ is provided repo fork of gh.com/{parent_repo}/? """
+    return user_repo.fork and user_repo.parent and \
+            user_repo.parent.full_name == target_repo.full_name
+
+
+def fork_gracefully(user, target_repo, user_repo):
+    """ fork if not forked, return forked repo """
+    if user_repo:
+        if is_fork_of(user_repo, target_repo):
+            logger.info("repo %s is fork of %s", user_repo.full_name, target_repo.full_name)
+            return user_repo
+    logger.info("forking repo %s to %s", target_repo.full_name, user.login)
+    return user.create_fork(target_repo)
+
+
+def clone_repo(repo):
+    logger.debug("clone %s", repo.ssh_url)
+    retcode = subprocess.call(["git", "clone", repo.ssh_url])
+    # likely the repo is already there, not an issue
+    logger.debug("clone return code: %s", retcode)
+
+
+def set_upstream_remote(repo):
+    logger.debug("set remote upstream to %s", repo.clone_url)
+    subprocess.check_call(["git", "remote", "add", "upstream", repo.clone_url])
+
+
+def main():
+    with open(os.path.expanduser("~/.github.token"), "r") as fd:
+        token = fd.read().strip()
+
+    full_repo_name = sys.argv[1].strip()
+    target_repo_org, target_repo_name = full_repo_name.split("/", 1)
+
+    g = github.Github(login_or_token=token)
+
+    target_repo = g.get_repo(full_repo_name)
+
+    user = g.get_user()
+
+    user_repo = user.get_repo(target_repo_name)
+
+    forked_repo = fork_gracefully(user, target_repo, user_repo)
+
+    clone_repo(forked_repo)
+
+    os.chdir(forked_repo.name)
+
+    set_upstream_remote(target_repo)
+
+
+if __name__ == "__main__":
+    main()
