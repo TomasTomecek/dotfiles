@@ -66,15 +66,19 @@ def main():
 
     user = g.get_user()
 
-    user_repo = user.get_repo(target_repo_name)
+    try:
+        user_repo = user.get_repo(target_repo_name)
+    except github.UnknownObjectException:
+        user_repo = None
 
-    forked_repo = fork_gracefully(user, target_repo, user_repo)
+    user_repo = fork_gracefully(user, target_repo, user_repo)
 
-    clone_repo(forked_repo)
+    clone_repo(user_repo)
 
-    os.chdir(forked_repo.name)
+    os.chdir(user_repo.name)
 
     set_upstream_remote(target_repo)
+    # TODO: set origin remote
 
 
 if __name__ == "__main__":
