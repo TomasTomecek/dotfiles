@@ -6,6 +6,7 @@
 2. Clone fork
 3. Cd to the repo
 4. Set remote upstream
+4. Set remote origin
 """
 
 import os
@@ -50,7 +51,15 @@ def clone_repo(repo):
 
 def set_upstream_remote(repo):
     logger.debug("set remote upstream to %s", repo.clone_url)
-    subprocess.check_call(["git", "remote", "add", "upstream", repo.clone_url])
+    try:
+        subprocess.check_call(["git", "remote", "add", "upstream", repo.clone_url])
+    except subprocess.CalledProcessError:
+        subprocess.check_call(["git", "remote", "set-url", "upstream", repo.clone_url])
+
+
+def set_origin_remote(repo):
+    logger.debug("set remote origin to %s", repo.ssh_url)
+    subprocess.check_call(["git", "remote", "set-url", "origin", repo.ssh_url])
 
 
 def main():
@@ -71,14 +80,18 @@ def main():
     except github.UnknownObjectException:
         user_repo = None
 
-    user_repo = fork_gracefully(user, target_repo, user_repo)
+    if user.login == target_repo_org:
+        clone_repo(user_repo)
+        os.chdir(user_repo.name)
+    else:
+        user_repo = fork_gracefully(user, target_repo, user_repo)
 
-    clone_repo(user_repo)
+        clone_repo(user_repo)
 
-    os.chdir(user_repo.name)
+        os.chdir(user_repo.name)
 
-    set_upstream_remote(target_repo)
-    # TODO: set origin remote
+        set_upstream_remote(target_repo)
+    set_origin_remote(user_repo)
 
 
 if __name__ == "__main__":
