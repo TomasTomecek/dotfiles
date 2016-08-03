@@ -1,0 +1,55 @@
+#!/usr/bin/python3
+
+import os
+import sys
+import logging
+
+import github
+
+
+def main():
+    with open(os.path.expanduser("~/.github.token"), "r") as fd:
+        token = fd.read().strip()
+
+    full_repo_name = sys.argv[1].strip()
+
+    g = github.Github(login_or_token=token)
+
+    target_repo = g.get_repo(full_repo_name)
+
+    releases = target_repo.get_releases()
+
+    release_fmt = "{tag:20} {title:30} {author}"
+    print(release_fmt.format(
+        tag="TAG",
+        title="TITLE",
+        author="AUTHOR"
+    ))
+    for release in releases[:5]:
+        line = release_fmt.format(
+            tag=release.tag_name,
+            title=release.title,
+            author=release.author.raw_data["login"]
+        )
+        print(line)
+
+    tags = target_repo.get_tags()
+
+    tag_fmt = "{sha:45} {name:20} {author}"
+    print(tag_fmt.format(
+        sha="SHA",
+        name="NAME",
+        author="AUTHOR"
+    ))
+    for tag in tags[:5]:
+        line = tag_fmt.format(
+            sha=tag.commit.sha,
+            name=tag.name,
+            author=tag.commit.author.raw_data["login"]
+        )
+        print(line)
+
+
+if __name__ == "__main__":
+    main()
+
