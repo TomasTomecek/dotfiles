@@ -5,6 +5,7 @@
     ui = auto
 [core]
     editor = vim
+    ignorecase = false
     excludesfile = ~/.gitign
 [alias]
     ci = commit --verbose
@@ -15,8 +16,9 @@
     a = add
     d = diff
     r = reset
-    rb = rebase
     s = stash
+[pull]
+    rebase = true
 [push]
     default = current
 [diff]
