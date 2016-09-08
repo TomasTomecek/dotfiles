@@ -39,6 +39,8 @@ alias v="vim"
 # halp!!1!
 alias h="less ~/.dotfiles/mysterious-keybinds/README.md"
 
+alias m="make"
+
 # git aliases
 alias g="git"
 alias gs="git status"
