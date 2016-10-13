@@ -107,8 +107,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 autocmd FileType gitcommit setlocal spell spelllang=en
-autocmd FileType \(sh\|yaml\|javascript\) setlocal shiftwidth=2
-autocmd FileType \(sh\|yaml\|javascript\) setlocal tabstop=2
+autocmd FileType \(sh\|yaml\|javascript\|html\|htmldjango\) setlocal shiftwidth=2
+autocmd FileType \(sh\|yaml\|javascript\|html\|htmldjango\) setlocal tabstop=2
 autocmd FileType mail setlocal textwidth=80
 autocmd FileType mail setlocal spell spelllang=en
 autocmd FileType go setlocal nolist  " go uses /t
