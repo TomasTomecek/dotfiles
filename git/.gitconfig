@@ -33,3 +33,5 @@
     prompt = false
 [submodule]
     fetchJobs = 4
+[commit]
+    template = ~/.dotfiles/git/.git-template
