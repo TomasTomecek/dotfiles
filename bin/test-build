@@ -20,7 +20,7 @@ inner_script = """\
 dnf install -y dnf-plugins-core rpm-build && \
 cd /src && \
 dnf builddep -y ./*.src.rpm && \
-rpmbuild --rebuild {srpm}\
+printf 'rpmbuild --define "_rpmdir ${{PWD}}" --rebuild {srpm}\n' >/root/.bash_history
 """
 
 
@@ -41,7 +41,7 @@ def get_srpm_path():
     return os.path.basename(out.strip().split(b" ", 1)[1]).decode("utf-8")
 
 
-image = get(sys.argv, 1, "fedora:23")
+image = get(sys.argv, 1, "fedora:25")
 rm_srpms()
 srpm = get_srpm_path()
 
@@ -51,25 +51,24 @@ c = d.create_container(image,
                        command="bash -c \'%s\'" % inner_script.format(srpm=srpm), tty=True,
                        volumes=["/src"],
                        host_config=d.create_host_config(binds=["%s:/src" % os.getcwd()]))
+
 d.start(c)
-try:
-    for line in d.logs(c, stream=True, follow=True):
-        print(line, end="")
-except KeyboardInterrupt:
-    d.kill(c)
+d.wait(c)
 
+repository = "build-{}-{}".format(os.path.basename(os.getcwd()),
+        subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).strip().decode("utf-8"))
 
+d.commit(c, repository=repository)
 
+import dockerpty
 
+container = d.create_container(
+    image=repository,
+    stdin_open=True,
+    tty=True,
+    volumes=["/src"],
+    host_config=d.create_host_config(binds=["%s:/src" % os.getcwd()]),
+    command='/bin/bash',
+)
 
-
-
-
-
-
-
-
-
-
-
-
+dockerpty.start(d, container)
