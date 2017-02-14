@@ -109,6 +109,7 @@ autocmd FileType gitcommit call setpos('.', [0, 1, 1, 0])
 autocmd FileType gitcommit setlocal spell spelllang=en
 autocmd FileType \(sh\|yaml\|javascript\|html\|htmldjango\|css\) setlocal shiftwidth=2
 autocmd FileType \(sh\|yaml\|javascript\|html\|htmldjango\|css\) setlocal tabstop=2
+autocmd FileType \(html\|htmldjango\|css\) setlocal noet
 autocmd FileType mail setlocal textwidth=80
 autocmd FileType mail setlocal spell spelllang=en
 autocmd FileType go setlocal nolist  " go uses /t
