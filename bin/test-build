@@ -61,6 +61,7 @@ c = d.create_container(image,
                        command=["/bin/bash", "-c", inner_script.format(srpm=srpm)],
                        tty=True,
                        volumes=["/src"],
+                       working_dir="/src",
                        host_config=d.create_host_config(binds=["%s:/src" % os.getcwd()]))
 
 d.start(c)
