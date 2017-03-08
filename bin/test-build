@@ -65,8 +65,11 @@ c = d.create_container(image,
                        host_config=d.create_host_config(binds=["%s:/src" % os.getcwd()]))
 
 d.start(c)
-for l in d.logs(c, follow=True, stream=True):
-    print(l, end="")
+try:
+    for l in d.logs(c, follow=True, stream=True):
+        print(l, end="")
+except Exception as ex:
+    print("An exception happened during processing logs: %s", ex)
 d.wait(c)
 
 repository = "build-{}-{}".format(os.path.basename(os.getcwd()),
