@@ -25,14 +25,6 @@ show_path(){
 # lame path
 # local p='%{$fg[blue]%}%~%{$reset_color%}'
 
-local rvm=''
-if which rvm-prompt &> /dev/null; then
-  rvm='%{$fg[green]%}‹$(rvm-prompt i v g)›%{$reset_color%}'
-else
-  if which rbenv &> /dev/null; then
-    rvm='%{$fg[green]%}‹$(rbenv version | sed -e "s/ (set.*$//")›%{$reset_color%}'
-  fi
-fi
 local jobs_d='%(1j.%{$fg[white]%}J %j %{$reset_color%}.)'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local path_info='$(show_path)'
