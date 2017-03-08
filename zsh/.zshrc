@@ -75,6 +75,7 @@ source_env() {
         local ENV_PATH="${CURRENT_DIR}/.env"
         if [[ -f ${ENV_PATH} && -r ${ENV_PATH} ]]; then
             source ${ENV_PATH}
+            { git fetch --all & disown; } 2>/dev/null >/dev/null
         else
             nested "${CURRENT_DIR}/../"
         fi
