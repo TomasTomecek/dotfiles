@@ -1,3 +1,8 @@
+autoload -U colors
+colors
+# Allow for functions in the prompt.
+setopt PROMPT_SUBST
+
 if [[ $(whoami) == root ]] ; then
     local user='%{$fg[red]%}%n %{$fg[white]%}at %{$fg[green]%}%m%{$reset_color%}'
 else
@@ -30,8 +35,8 @@ else
 fi
 local jobs_d='%(1j.%{$fg[white]%}J %j %{$reset_color%}.)'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
-local git_info='$(git_super_status)'
 local path_info='$(show_path)'
+local show_git_stats='$(git-stats)'
 
 print_loaded_project(){
     local prj=""
@@ -44,4 +49,4 @@ local loaded_project='$(print_loaded_project)'
 
 # print bell when command ends
 PROMPT="%{$(echo "\a")%}${loaded_project}${user} ${path_info} "
-RPROMPT="${jobs_d} ${return_code} ${git_info}"
+RPROMPT="${jobs_d} ${return_code} ${show_git_stats}"
