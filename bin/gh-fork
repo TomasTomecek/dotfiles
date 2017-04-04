@@ -81,6 +81,8 @@ def main():
         user_repo = None
 
     if user.login == target_repo_org:
+        if not user_repo:
+            raise RuntimeError("repo %s not found" % target_repo_name)
         clone_repo(user_repo)
         os.chdir(user_repo.name)
     else:
