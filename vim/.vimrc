@@ -39,6 +39,9 @@ set number
 set ignorecase
 set smartcase
 
+" copy selections to X clipboard
+set clipboard=unnamed
+
 syntax enable
 set background=dark
 "syntax on
