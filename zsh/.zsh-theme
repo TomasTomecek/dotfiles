@@ -28,7 +28,7 @@ show_path(){
 local jobs_d='%(1j.%{$fg[white]%}J %j %{$reset_color%}.)'
 local return_code='%(?..%{$fg[red]%}%? ↵%{$reset_color%})'
 local path_info='$(show_path)'
-local show_git_stats='$(git-stats)'
+local show_git_stats='$(pretty-git-prompt)'
 
 print_loaded_project(){
     local prj=""
