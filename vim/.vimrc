@@ -97,6 +97,9 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 let g:jedi#auto_vim_configuration = 0
 let g:jedi#completions_enabled = 0
 
+" show hidden files
+let g:ctrlp_show_hidden = 1
+
 set list
 
 " airline
