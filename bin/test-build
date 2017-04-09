@@ -4,7 +4,7 @@
   image=${1:-fedora:23}  # default f23
   srpm=$(fedpkg srpm) | tail -n 1
   rm ./*.src.rpm
-  
+
   docker run -ti -v $PWD:/src fedora:23 bash
 """
 
@@ -15,6 +15,7 @@ import subprocess
 from glob import glob
 
 
+# TODO: run build as unpriv user
 inner_script = """\
 cd /src && \
 dnf install -y dnf-plugins-core rpm-build && \
@@ -56,7 +57,10 @@ image = get(sys.argv, 1, "fedora:25")
 srpm = get_srpm_path()
 
 import docker
-d = docker.AutoVersionClient()
+try:
+    d = docker.APIClient(version="auto")  # 2, changing API is fun
+except AttributeError:
+    d = docker.AutoVersionClient()  # 1
 c = d.create_container(image,
                        command=["/bin/bash", "-c", inner_script.format(srpm=srpm)],
                        tty=True,
@@ -70,6 +74,10 @@ try:
         print(l, end="")
 except Exception as ex:
     print("An exception happened during processing logs: %s", ex)
+
+# obviously, this can raise exc:
+#   requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionRefusedError(111, 'Connection refused'))
+# TODO: verify it finished succesfully
 d.wait(c)
 
 repository = "build-{}-{}".format(os.path.basename(os.getcwd()),
