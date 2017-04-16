@@ -63,6 +63,8 @@ export SAVEHIST=$HISTSIZE
 setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt no_share_history
+# don't use ctrl+q ctrl+s
+unsetopt flowcontrol
 
 # source .env if there is one
 autoload -U add-zsh-hook

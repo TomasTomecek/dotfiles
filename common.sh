@@ -151,3 +151,6 @@ nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | colu
 
 # show random aliases, as a reminder
 # alias | shuf -n 5
+
+# "disable" ctrl-{s,q}
+stty start '^-' stop '^-'
