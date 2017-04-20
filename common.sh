@@ -35,6 +35,7 @@ alias vm="vim Makefile"
 alias vd="vim Dockerfile"
 alias vc="vim ./docker-compose.yml"
 alias vr="vim README*"
+alias vy="vim ./*.y*ml"
 alias v="vim"
 # halp!!1!
 alias h="less ~/.dotfiles/mysterious-keybinds/README.md"
