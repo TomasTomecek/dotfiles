@@ -12,6 +12,7 @@ import os
 import shutil
 import sys
 import subprocess
+import time
 from glob import glob
 
 
@@ -53,7 +54,7 @@ def get_srpm_path():
     return os.path.basename(out.strip().split(b" ", 1)[1]).decode("utf-8")
 
 
-image = get(sys.argv, 1, "fedora:25")
+image = get(sys.argv, 1, "registry.fedoraproject.org/fedora:26")
 srpm = get_srpm_path()
 
 import docker
@@ -78,7 +79,12 @@ except Exception as ex:
 # obviously, this can raise exc:
 #   requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionRefusedError(111, 'Connection refused'))
 # TODO: verify it finished succesfully
-d.wait(c)
+try:
+    d.wait(c)
+except Exception as ex:
+    print(repr(ex))
+    print("Trying harder...")
+    time.sleep(5.0)
 
 repository = "build-{}-{}".format(os.path.basename(os.getcwd()),
         subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "HEAD"]).strip().decode("utf-8"))
