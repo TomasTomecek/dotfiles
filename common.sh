@@ -45,6 +45,8 @@ alias m="make"
 # git aliases
 alias g="git"
 alias gs="git status"
+alias gst="git stash"
+alias gsp="git stash pop"
 alias gd="git diff"
 alias gp="git push -u"
 alias gpf="git push -f"
