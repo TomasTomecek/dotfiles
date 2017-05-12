@@ -38,7 +38,12 @@ def fork_gracefully(user, target_repo, user_repo):
         if is_fork_of(user_repo, target_repo):
             logger.info("repo %s is fork of %s", user_repo.full_name, target_repo.full_name)
             return user_repo
-    logger.info("forking repo %s to %s", target_repo.full_name, user.login)
+    try:
+        full_name = target_repo.full_name
+    except github.GithubException.UnknownObjectException:
+        logger.error("repository doesn't exist")
+        sys.exit(1)
+    logger.info("forking repo %s to %s", full_name, user.login)
     return user.create_fork(target_repo)
 
 
