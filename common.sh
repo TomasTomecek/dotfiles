@@ -118,7 +118,7 @@ eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-universal`
 
 # functions
 rpmw () { rpm -qf "$(which ${1})" ; }
-rpmg () { rpm -qa | grep "${1}" ; }
+rpmg () { rpm -qa | grep -i "${1}" ; }
 gg () { grep -inR --exclude-dir=".git" --color=always "${1}" . ; }
 
 ff () { find . -iname "*${1}*" ; }
