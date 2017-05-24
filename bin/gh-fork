@@ -7,6 +7,9 @@
 3. Cd to the repo
 4. Set remote upstream
 4. Set remote origin
+
+TODO:
+  * config git config to fetch PRs
 """
 
 import os
