@@ -1,8 +1,16 @@
 #!/usr/bin/python3
 
 """
+Usage:
+    $ ./gh-fork $GITHUB_NAMESPACE/$GITHUB_REPO
+
+In order to use this script, you need to have [GitHub API token](https://github.com/settings/tokens) present at:
+    ~/.github.token
+
+Functionality:
+
 1. Fork given repo
-   a) if there's fork, skip
+   a) if the fork exists, skip
 2. Clone fork
 3. Cd to the repo
 4. Set remote upstream
