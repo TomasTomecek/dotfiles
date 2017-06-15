@@ -15,6 +15,13 @@
 				"address_color_fg": "colour4",
 				"address_color_bg": "default"
 			},
+			"eth0": {
+				"alias": "E",
+				"label_color_fg": "white",
+				"label_color_bg": "default",
+				"address_color_fg": "colour4",
+				"address_color_bg": "default"
+			},
 			"wlp3s0": {
 				"alias": "W",
 				"label_color_fg": "white",
