@@ -1,6 +1,5 @@
 # common stuff for both shells
 
-export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/
 export EDITOR="vim"
 
 # VARS
@@ -15,6 +14,8 @@ export AUTOJUMP_KEEP_SYMLINKS=1
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 export GOPATH="${HOME}/dev/go"
 export GOBIN="${HOME}/dev/go/bin"
+
+export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/:${GOBIN}
 
 export PYTHONDONTWRITEBYTECODE="fuck-yes"
 
