@@ -15,9 +15,6 @@ Functionality:
 3. Cd to the repo
 4. Set remote upstream
 4. Set remote origin
-
-TODO:
-  * config git config to fetch PRs
 """
 
 import os
@@ -71,11 +68,15 @@ def set_upstream_remote(repo):
         subprocess.check_call(["git", "remote", "add", "upstream", repo.clone_url])
     except subprocess.CalledProcessError:
         subprocess.check_call(["git", "remote", "set-url", "upstream", repo.clone_url])
+    logger.debug("adding fetch rule to get PRs for upstream")
+    subprocess.check_call(["git", "config", "--local", "--add", "remote.upstream.fetch", "+refs/pull/*/head:refs/remotes/upstream/pr/*"])
 
 
 def set_origin_remote(repo):
     logger.debug("set remote origin to %s", repo.ssh_url)
     subprocess.check_call(["git", "remote", "set-url", "origin", repo.ssh_url])
+    logger.debug("adding fetch rule to get PRs for origin")
+    subprocess.check_call(["git", "config", "--local", "--add", "remote.origin.fetch", "+refs/pull/*/head:refs/remotes/origin/pr/*"])
 
 
 def main():
