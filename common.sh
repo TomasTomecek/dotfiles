@@ -15,7 +15,7 @@ export AUTOJUMP_KEEP_SYMLINKS=1
 export GOPATH="${HOME}/dev/go"
 export GOBIN="${HOME}/dev/go/bin"
 
-export PATH=${PATH}:~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/:${GOBIN}
+export PATH=~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/:${GOBIN}:${PATH}
 
 export PYTHONDONTWRITEBYTECODE="fuck-yes"
 
