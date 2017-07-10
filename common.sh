@@ -94,18 +94,18 @@ alias stp="systemctl stop"
 alias ju="journalctl"
 alias sysdig="docker run -it --rm --privileged -v /:/host:ro -e TERM=$TERM sysdig/sysdig csysdig"
 
-alias d="docker"
-alias di="docker images"
-alias dit="docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t"
-alias dp="docker ps"
-alias dpa="docker ps -a"
-alias dr="docker run"
-alias drt="docker run --rm -ti"
-alias de="docker exec"
-alias det="docker exec -ti"
-alias c="docker-compose"
-drm() { docker rm -f $(docker ps -a -q) }
-drmi() { docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
+alias d="sudo docker"
+alias di="sudo docker images"
+alias dit="sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t"
+alias dp="sudo docker ps"
+alias dpa="sudo docker ps -a"
+alias dr="sudo docker run"
+alias drt="sudo docker run --rm -ti"
+alias de="sudo docker exec"
+alias det="sudo docker exec -ti"
+alias c="sudo docker-compose"
+drm() { sudo docker rm -f $(docker ps -a -q) }
+drmi() { sudo docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
