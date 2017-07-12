@@ -42,6 +42,7 @@ alias v="vim"
 alias h="less ~/.dotfiles/mysterious-keybinds/README.md"
 
 alias m="make"
+alias sem="sudo -E make"
 
 # git aliases
 alias g="git"
