@@ -95,7 +95,7 @@ alias stp="systemctl stop"
 alias ju="journalctl"
 alias sysdig="docker run -it --rm --privileged -v /:/host:ro -e TERM=$TERM sysdig/sysdig csysdig"
 
-alias d="sudo docker"
+alias d="docker"
 alias di="sudo docker images"
 alias dit="sudo docker run --rm -v /var/run/docker.sock:/var/run/docker.sock nate/dockviz images -t"
 alias dp="sudo docker ps"
