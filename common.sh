@@ -90,9 +90,9 @@ alias mockr="mock -r fedora-rawhide-x86_64"
 alias sc="systemctl"
 sr () { systemctl restart ${@} ; systemctl --no-pager --full status ${@} }
 sta () { systemctl start ${@} ; systemctl --no-pager --full status ${@} }
-alias s="systemctl status"
+alias s="systemctl --no-pager --full status"
 alias stp="systemctl stop"
-alias ju="journalctl"
+alias ju="journalctl --pager-end"
 alias sysdig="docker run -it --rm --privileged -v /:/host:ro -e TERM=$TERM sysdig/sysdig csysdig"
 
 alias d="docker"
