@@ -46,7 +46,7 @@ alias sem="sudo -E make"
 
 # git aliases
 alias g="git"
-alias gs="git status"
+alias gs="git status --show-stash"
 alias gst="git stash"
 alias gsp="git stash pop"
 alias gd="git diff"
