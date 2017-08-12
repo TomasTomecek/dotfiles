@@ -29,6 +29,7 @@ alias vR="vim -R"
 alias tree="tree -C"
 alias rsync="rsync -Prza"  # progress, recursive, compress, archive
 alias diff="diff --color=always -u"
+alias sen="sudo sen"
 
 # vim aliases/functions
 vim() { if [ -f /usr/bin/vimx ] ; then /usr/bin/vimx ${@} ; else /usr/bin/vim ${@} ; fi }
