@@ -9,7 +9,11 @@ In order to use this script, you need to have [GitHub API token](https://github.
 
 Functionality:
 
-1. Create new PR against upstream master
+1. Find upstream remote (fallback to origin)
+2. Get username
+3. Get commit messages from newly added commits
+4. Prompt for PR title and body
+5. Create new PR against upstream (or origin) master
 """
 
 import os
