@@ -98,7 +98,8 @@ let g:neocomplete#sources#syntax#min_keyword_length = 2
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " when completing python, don't insert completion automatically
 let g:jedi#auto_vim_configuration = 0
-let g:jedi#completions_enabled = 0
+" let g:jedi#completions_enabled = 0
+let g:jedi#use_tabs_not_buffers = 1
 
 " show hidden files
 let g:ctrlp_show_hidden = 1
