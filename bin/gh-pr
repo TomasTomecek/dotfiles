@@ -1,0 +1,121 @@
+#!/usr/bin/python3
+
+"""
+Usage:
+    $ ./gh-pr
+
+In order to use this script, you need to have [GitHub API token](https://github.com/settings/tokens) present at:
+    ~/.github.token
+
+Functionality:
+
+1. Create new PR against upstream master
+"""
+
+import os
+import sys
+import re
+import logging
+import subprocess
+import tempfile
+
+import github
+
+
+logger = logging.getLogger("gh-pr")
+logger.setLevel(logging.DEBUG)
+handler = logging.StreamHandler()
+handler.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s %(levelname)-6s %(message)s', '%H:%M:%S')
+handler.setFormatter(formatter)
+logger.addHandler(handler)
+
+
+def get_remote_url(remote="upstream"):
+    logger.debug("get remote URL for remote %s", remote)
+    try:
+        url = subprocess.check_output(["git", "remote", "get-url", remote])
+    except subprocess.CalledProcessError:
+        remote = "origin"
+        logger.warning("falling back to %s", remote)
+        url = subprocess.check_output(["git", "remote", "get-url", remote])
+    return remote, url.decode("utf-8").strip()
+
+
+def get_github_full_name(repo_url):
+    s = re.sub(r"^[a-zA-Z0-9:/@]+?github.com.", "", repo_url)
+    return re.sub(r"\.git$", "", s)
+
+
+def prompt_for_pr_content(commit_msgs):
+    t = tempfile.NamedTemporaryFile(delete=False, prefix='gh.')
+    try:
+        template = "Title of this PR\n\nPR body:\n{}".format(commit_msgs)
+        t.write(template.encode("utf-8"))
+        t.flush()
+        t.close()
+        editor_cmdstring = os.environ.get('EDITOR')
+        logger.debug('using editor: %s', editor_cmdstring)
+
+        cmd = ["bash", "-c", "%s %s" % (editor_cmdstring, t.name)]
+
+        logger.debug('invoking editor: %s', cmd)
+        proc = subprocess.Popen(cmd)
+        ret = proc.wait()
+        logger.debug('editor returned : %s', ret)
+        if ret:
+            raise RuntimeError("error from editor")
+        with open(t.name) as fd:
+            pr_content = fd.read()
+    finally:
+        os.unlink(t.name)
+    logger.debug('got: %s', pr_content)
+    title, body = pr_content.split("\n", 1)
+    logger.debug('title: %s', title)
+    logger.debug('body: %s', body)
+    return title, body.strip()
+
+
+def get_current_branch_name():
+    return subprocess.check_output(
+        ["git", "rev-parse", "--abbrev-ref", "HEAD"]).decode("utf-8").strip()
+
+
+def get_commit_msgs(branch):
+    return subprocess.check_output(
+        ["git", "log", "--pretty=format:%B%n%n",
+         "%s..HEAD" % branch]).decode("utf-8").strip()
+
+
+def main():
+    with open(os.path.expanduser("~/.github.token"), "r") as fd:
+        token = fd.read().strip()
+
+    remote, remote_url = get_remote_url()
+    full_repo_name = get_github_full_name(remote_url)
+    logger.debug("github repo name: %s", full_repo_name)
+
+    g = github.Github(login_or_token=token)
+
+    upstream_repo = g.get_repo(full_repo_name)
+
+    user = g.get_user()
+
+    head = "{}:{}".format(user.login, get_current_branch_name())
+    logger.debug("PR head is: %s", head)
+
+    base = "{}/{}".format(remote, "master")
+
+    title, body = prompt_for_pr_content(get_commit_msgs(base))
+
+    opts = {
+        "title": title,
+        "body": body,
+        "base": "master",
+        "head": head,
+    }
+    upstream_repo.create_pull(**opts)
+
+
+if __name__ == "__main__":
+    main()
