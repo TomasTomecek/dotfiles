@@ -58,23 +58,28 @@ image = get(sys.argv, 1, "registry.fedoraproject.org/fedora:26")
 srpm = get_srpm_path()
 
 import docker
-try:
-    d = docker.APIClient(version="auto")  # 2, changing API is fun
-except AttributeError:
-    d = docker.AutoVersionClient()  # 1
+d = docker.APIClient(version="auto")
+# run in host's netw namespace, timeouts are not fun
+networking_config = d.create_networking_config("host")
 c = d.create_container(image,
                        command=["/bin/bash", "-c", inner_script.format(srpm=srpm)],
                        tty=True,
                        volumes=["/src"],
                        working_dir="/src",
+                       networking_config=networking_config,
                        host_config=d.create_host_config(binds=["%s:/src" % os.getcwd()]))
 
+print("Container created, starting it now...")
+
 d.start(c)
+
+print("Container started.")
+
 try:
     for l in d.logs(c, follow=True, stream=True):
         print(l, end="")
 except Exception as ex:
-    print("An exception happened during processing logs: %s", ex)
+    print("An exception happened during processing logs: %s" % ex)
 
 # obviously, this can raise exc:
 #   requests.exceptions.ConnectionError: ('Connection aborted.', ConnectionRefusedError(111, 'Connection refused'))
