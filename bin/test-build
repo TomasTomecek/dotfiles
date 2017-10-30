@@ -106,6 +106,7 @@ container = d.create_container(
     image=repository,
     stdin_open=True,
     tty=True,
+    networking_config=networking_config,
     volumes=["/src"],
     host_config=d.create_host_config(binds=["%s:/src" % os.getcwd()]),
     command='/bin/bash',
