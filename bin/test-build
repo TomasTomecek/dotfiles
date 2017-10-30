@@ -18,7 +18,9 @@ from glob import glob
 
 # TODO: run build as unpriv user
 inner_script = """\
+set -e && \
 cd /src && \
+dnf makecache && \
 dnf install -y dnf-plugins-core rpm-build && \
 dnf builddep -y ./*.src.rpm && \
 printf \'rpmbuild --define "_rpmdir ${{PWD}}" --rebuild {srpm}\n' >/root/.bash_history
@@ -60,7 +62,9 @@ srpm = get_srpm_path()
 import docker
 d = docker.APIClient(version="auto")
 # run in host's netw namespace, timeouts are not fun
-networking_config = d.create_networking_config("host")
+networking_config = d.create_networking_config({
+    "host": d.create_endpoint_config()
+})
 c = d.create_container(image,
                        command=["/bin/bash", "-c", inner_script.format(srpm=srpm)],
                        tty=True,
