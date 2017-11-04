@@ -3,28 +3,39 @@ set nocompatible
 
 filetype off                  " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'rust-lang/rust.vim'
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'jwhitley/vim-colors-solarized'
-Plugin 'bling/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'jelera/vim-javascript-syntax'
-Plugin 'ntpeters/vim-better-whitespace'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'tpope/vim-sensible'
-" Plugin 'Valloric/YouCompleteMe'
-Plugin 'fatih/vim-go'
-Plugin 'scrooloose/syntastic'
-Plugin 'Lokaltog/vim-easymotion'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'kien/ctrlp.vim'
+" Plugin 'rust-lang/rust.vim'
+" Plugin 'jelera/vim-javascript-syntax'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'jwhitley/vim-colors-solarized'
+Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'davidhalter/jedi-vim'
+Plug 'tpope/vim-sensible'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+function! FreshGoBinaries(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  :GoInstallBinaries
+  :GoUpdateBinaries
+endfunction
+Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
+Plug 'scrooloose/syntastic'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'kien/ctrlp.vim'
 
-call vundle#end()
+call plug#end()
 
 set tabstop=4
 set shiftwidth=4
