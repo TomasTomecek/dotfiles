@@ -32,7 +32,15 @@ alias diff="diff --color=always -u"
 alias sen="sudo sen"
 
 # vim aliases/functions
-vim() { if [ -f /usr/bin/vimx ] ; then /usr/bin/vimx ${@} ; else /usr/bin/vim ${@} ; fi }
+vim() {
+  if [ -f /usr/bin/nvim ] ; then
+    /usr/bin/nvim ${@} ;
+  elif [ -f /usr/bin/vimx ] ; then
+    /usr/bin/vimx ${@} ;
+  else
+    /usr/bin/vim ${@} ;
+  fi
+}
 alias vs="vim ./*.spec"
 alias vm="vim Makefile"
 alias vd="vim Dockerfile"
