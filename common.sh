@@ -54,6 +54,8 @@ alias h="less ~/.dotfiles/mysterious-keybinds/README.md"
 alias m="make"
 alias sem="sudo -E make"
 
+alias a=ansible-playbook
+
 # git aliases
 alias g="git"
 alias gs="git status --show-stash"
