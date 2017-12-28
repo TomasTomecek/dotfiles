@@ -34,8 +34,11 @@ Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kien/ctrlp.vim'
+Plug 'Shougo/denite.nvim'
 
 call plug#end()
+
+set rtp+=~/.vim/cui
 
 set tabstop=4
 set shiftwidth=4
@@ -96,6 +99,8 @@ let g:syntastic_python_checkers = ["pylint"]
 let g:syntastic_rust_checkers = ['rustc']
 " let g:syntastic_pylint_exec = '/usr/bin/python3-pylint'
 " let g:syntastic_python_pylint_exec = '/usr/bin/python3-pylint'
+
+let g:deoplete#enable_at_startup = 1
 
 " neocomplete
 " Disable AutoComplPop.
