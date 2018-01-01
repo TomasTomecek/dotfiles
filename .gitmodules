@@ -4,15 +4,12 @@
 [submodule "ext/mc"]
 	path = ext/mc
 	url = https://github.com/peel/mc.git
-[submodule "ext/zsh-git-prompt"]
-	path = ext/zsh-git-prompt
-	url = https://github.com/olivierverdier/zsh-git-prompt
 [submodule "mail"]
 	path = mail
-	url = git@vm:/var/lib/git/dotfiles-mail.git
+	url = jahoda:gitkwak/dotfiles-mail.git
 [submodule "sbin"]
 	path = sbin
-	url = git@vm:/var/lib/git/dotfiles-sbin.git
+	url = jahoda:gitkwak/dotfiles-sbin.git
 [submodule "mysterious-keybinds"]
 	path = mysterious-keybinds
 	url = git@github.com:TomasTomecek/mysterious-keybinds
