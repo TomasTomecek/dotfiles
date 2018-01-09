@@ -68,6 +68,10 @@ def set_upstream_remote(repo):
         subprocess.check_call(["git", "remote", "add", "upstream", repo.clone_url])
     except subprocess.CalledProcessError:
         subprocess.check_call(["git", "remote", "set-url", "upstream", repo.clone_url])
+    try:
+        subprocess.check_call(["git", "remote", "add", "upstream-w", repo.ssh_url])
+    except subprocess.CalledProcessError:
+        subprocess.check_call(["git", "remote", "set-url", "upstream-w", repo.ssh_url])
     logger.debug("adding fetch rule to get PRs for upstream")
     subprocess.check_call(["git", "config", "--local", "--add", "remote.upstream.fetch", "+refs/pull/*/head:refs/remotes/upstream/pr/*"])
 
@@ -77,6 +81,12 @@ def set_origin_remote(repo):
     subprocess.check_call(["git", "remote", "set-url", "origin", repo.ssh_url])
     logger.debug("adding fetch rule to get PRs for origin")
     subprocess.check_call(["git", "config", "--local", "--add", "remote.origin.fetch", "+refs/pull/*/head:refs/remotes/origin/pr/*"])
+
+
+def fetch_all():
+    logger.debug("fetching everything")
+    with open("/dev/null", "w") as fd:
+        subprocess.check_call(["git", "fetch", "--all"], stdout=fd)
 
 
 def main():
@@ -111,6 +121,7 @@ def main():
 
         set_upstream_remote(target_repo)
     set_origin_remote(user_repo)
+    fetch_all()
 
 
 if __name__ == "__main__":
