@@ -93,6 +93,11 @@ alias gsp="git submodule foreach git pull --rebase origin master"
 gi() { git init . && git add . && git commit -m ${1:-init} >/dev/null; }
 gsr() { git rev-list --all | xargs git grep ${1}; }
 
+gh-f() {
+  gh-fork $1
+  cd $(echo $1 | awk '{split($0,a,"/"); print a[2]}')
+}
+
 alias t="env TERM=screen-256color tmux -2"
 alias htop="TERM=screen htop"
 alias mock6="mock -r rhel-6-x86_64"
