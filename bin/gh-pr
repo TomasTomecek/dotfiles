@@ -55,7 +55,8 @@ def prompt_for_pr_content(commit_msgs):
     t = tempfile.NamedTemporaryFile(delete=False, prefix='gh.')
     try:
         template = "Title of this PR\n\nPR body:\n{}".format(commit_msgs)
-        t.write(template.encode("utf-8"))
+        template_b = template.encode("utf-8")
+        t.write(template_b)
         t.flush()
         t.close()
         editor_cmdstring = os.environ.get('EDITOR')
@@ -71,6 +72,9 @@ def prompt_for_pr_content(commit_msgs):
             raise RuntimeError("error from editor")
         with open(t.name) as fd:
             pr_content = fd.read()
+        if template == pr_content:
+            logger.error("PR description is unchanged")
+            raise RuntimeError("The template is not changed, the PR won't be created.")
     finally:
         os.unlink(t.name)
     logger.debug('got: %s', pr_content)
