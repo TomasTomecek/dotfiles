@@ -122,7 +122,8 @@ def main():
         "base": "master",
         "head": head,
     }
-    upstream_repo.create_pull(**opts)
+    pr = upstream_repo.create_pull(**opts)
+    logger.info("PR link: %s", pr.html_url)
 
 
 if __name__ == "__main__":
