@@ -116,10 +116,15 @@ def main():
 
     title, body = prompt_for_pr_content(get_commit_msgs(base))
 
+    try:
+        base = sys.argv[1]
+    except IndexError:
+        base = "master"
+
     opts = {
         "title": title,
         "body": body,
-        "base": "master",
+        "base": base,
         "head": head,
     }
     pr = upstream_repo.create_pull(**opts)
