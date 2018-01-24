@@ -94,8 +94,8 @@ gi() { git init . && git add . && git commit -m ${1:-init} >/dev/null; }
 gsr() { git rev-list --all | xargs git grep ${1}; }
 
 gh-f() {
-  gh-fork $1
-  cd $(echo $1 | awk '{split($0,a,"/"); print a[2]}')
+  gh-fork $1 && cd "$1"
+  # cd $(echo $1 | awk '{split($0,a,"/"); print a[2]}')
 }
 
 alias t="env TERM=screen-256color tmux -2"

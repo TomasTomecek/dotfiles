@@ -55,11 +55,14 @@ def fork_gracefully(user, target_repo, user_repo):
     return user.create_fork(target_repo)
 
 
-def clone_repo(repo):
+def clone_repo_and_cd_inside(repo, namespace):
+    os.makedirs(namespace, exist_ok=True)
+    os.chdir(namespace)
     logger.debug("clone %s", repo.ssh_url)
     retcode = subprocess.call(["git", "clone", repo.ssh_url])
     # likely the repo is already there, not an issue
     logger.debug("clone return code: %s", retcode)
+    os.chdir(repo.name)
 
 
 def set_upstream_remote(repo):
@@ -110,14 +113,11 @@ def main():
     if user.login == target_repo_org:
         if not user_repo:
             raise RuntimeError("repo %s not found" % target_repo_name)
-        clone_repo(user_repo)
-        os.chdir(user_repo.name)
+        clone_repo_and_cd_inside(user_repo, target_repo_org)
     else:
         user_repo = fork_gracefully(user, target_repo, user_repo)
 
-        clone_repo(user_repo)
-
-        os.chdir(user_repo.name)
+        clone_repo_and_cd_inside(user_repo, target_repo_org)
 
         set_upstream_remote(target_repo)
     set_origin_remote(user_repo)
