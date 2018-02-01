@@ -173,6 +173,9 @@ imap <C-F>w <C-o><leader><leader>w
 imap <C-F>F <C-o><leader><leader>F
 imap <C-F>f <C-o><leader><leader>f
 
+" add a newline after each occurrence of the last search term
+nnoremap SS :%s//&\r/<CR>
+
 "set noesckeys
 
 if has("autocmd")
