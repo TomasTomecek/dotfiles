@@ -19,6 +19,9 @@ export PATH=~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/:${GOBIN}:${PATH}
 
 export PYTHONDONTWRITEBYTECODE="fuck-yes"
 
+# gpg wants this
+export GPG_TTY=$(tty)
+
 # ALIAS
 
 alias ls="ls --color=auto"
