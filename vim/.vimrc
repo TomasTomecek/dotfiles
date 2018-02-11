@@ -18,7 +18,7 @@ Plug 'tpope/vim-sensible'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
+  " Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
@@ -34,7 +34,7 @@ Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kien/ctrlp.vim'
-Plug 'Shougo/denite.nvim'
+" Plug 'Shougo/denite.nvim'
 
 call plug#end()
 
