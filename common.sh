@@ -141,7 +141,16 @@ eval `dircolors ~/.dotfiles/ext/dircolors-solarized/dircolors.ansi-universal`
 
 # functions
 rpmw () { rpm -qf "$(which ${1})" ; }
-rpmg () { rpm -qa | grep -i "${1}" ; }
+rpmg () {
+  # will you hate me for doing this?
+  if which rpm >/dev/null; then
+    rpm -qa | grep -i "${1}"
+  elif which equery >/dev/null; then
+    equery '*' | grep -i "${1}"
+  else
+    echo "Unknown distribution."
+  fi
+}
 llg () { ls -lhat | grep -i "${1}" ; }
 psg () { ps aux | grep -i "${1}" ; }
 gg () { grep -inR --exclude-dir=".git" --color=always "${1}" . ; }
