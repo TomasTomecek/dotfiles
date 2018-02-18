@@ -24,6 +24,11 @@ export GPG_TTY=$(tty)
 
 # ALIAS
 
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../../"
+alias .....="cd ../../../.."
+
 alias ls="ls --color=auto"
 alias llt="ls -lht --color=auto"
 alias ll="ls -lh --color=auto"
