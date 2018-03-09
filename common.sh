@@ -52,7 +52,6 @@ vim() {
 alias vs="vim ./*.spec"
 alias vm="vim Makefile"
 alias vd="vim Dockerfile"
-alias vc="vim ./docker-compose.yml"
 alias vr="vim README*"
 alias vy="vim ./*.y*ml"
 alias v="vim"
@@ -131,7 +130,6 @@ alias dr="sudo docker run"
 alias drt="sudo docker run --rm -ti"
 alias de="sudo docker exec"
 alias det="sudo docker exec -ti"
-alias c="sudo docker-compose"
 drm() { sudo docker rm -f $(docker ps -a -q) }
 drmi() { sudo docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
 
