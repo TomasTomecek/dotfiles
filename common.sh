@@ -19,6 +19,8 @@ export PATH=~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/:${GOBIN}:${PATH}
 
 export PYTHONDONTWRITEBYTECODE="fuck-yes"
 
+test -f /etc/pki/tls/certs/ca-bundle.crt && export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
+
 # gpg wants this
 export GPG_TTY=$(tty)
 
