@@ -15,13 +15,13 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-sensible'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  " Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   " Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 function! FreshGoBinaries(info)
   " info is a dictionary with 3 fields
   " - name:   name of the plugin
@@ -34,7 +34,7 @@ Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
 Plug 'scrooloose/syntastic'
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kien/ctrlp.vim'
-" Plug 'Shougo/denite.nvim'
+Plug 'Shougo/denite.nvim'
 
 call plug#end()
 
@@ -75,7 +75,7 @@ set undodir=$HOME/.vim/undofiles//
 set undofile
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
-set t_Co=256 "256
+set t_Co=256
 colorscheme solarized
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
