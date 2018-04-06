@@ -1,0 +1,54 @@
+#!/usr/bin/python3
+
+import os
+import sys
+import subprocess
+
+import github
+
+from tabulate import tabulate
+
+
+def get_url_for_remote(remote):
+    cmd = ["git", "remote", "get-url", remote]
+    try:
+        return subprocess.check_output(cmd).decode("utf-8")
+    except subprocess.CalledProcessError:
+        return None
+
+
+def discover_repo_name():
+    u = get_url_for_remote("upstream")
+    if not u:
+        u = get_url_for_remote("origin")
+    _, full_name = u.rsplit(":", 1)
+    return full_name
+
+
+def main():
+    with open(os.path.expanduser("~/.github.token"), "r") as fd:
+        token = fd.read().strip()
+
+    try:
+        full_repo_name = sys.argv[1].strip()
+    except IndexError:
+        full_repo_name = discover_repo_name()
+
+    g = github.Github(login_or_token=token)
+
+    repo = g.get_repo(full_repo_name)
+
+    prs = repo.get_pulls(state="open", sort="updated")
+
+    print(tabulate([
+        (
+            "#%s" % pr.number,
+            pr.title,
+            "@%s" % pr.user.login
+        )
+        for pr in prs
+    ], tablefmt="fancy_grid"))
+
+
+if __name__ == "__main__":
+    main()
