@@ -1,0 +1,31 @@
+#!/usr/bin/python3
+import sys
+import subprocess
+
+
+def get_latest_pr():
+    cmd = ["git", "branch", "--sort=-committerdate", "--list", "-a", "*/pr/*"]
+    newest_pr = subprocess.check_output(cmd).decode("utf-8").split("\n")[0]
+    _, pr_num = newest_pr.rsplit("/", 1)
+    return pr_num
+
+
+def main():
+    try:
+        pr = sys.argv[1].strip()
+    except IndexError:
+        pr = get_latest_pr()
+
+    # for start
+    subprocess.check_call(["git", "fetch", "--all"])
+
+    subprocess.check_call(["git", "checkout", "pr/%s" % pr])
+
+    tracking_branch = subprocess.check_output(["git", "rev-parse", "--abbrev-ref", "--symbolic-full-name", "@{u}"]).decode("utf-8").strip()
+
+    # and now let's make sure we have the latest stuff
+    subprocess.check_call(["git", "reset", "--hard", tracking_branch, "--"])
+
+
+if __name__ == "__main__":
+    main()
