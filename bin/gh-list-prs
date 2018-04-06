@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import os
+import re
 import sys
 import subprocess
 
@@ -12,9 +13,11 @@ from tabulate import tabulate
 def get_url_for_remote(remote):
     cmd = ["git", "remote", "get-url", remote]
     try:
-        return subprocess.check_output(cmd).decode("utf-8")
+        url = subprocess.check_output(cmd).decode("utf-8").strip()
     except subprocess.CalledProcessError:
         return None
+    else:
+        return re.sub(r"\.git$", "", url)
 
 
 def discover_repo_name():
