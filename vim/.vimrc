@@ -15,6 +15,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'davidhalter/jedi-vim'
 Plug 'tpope/vim-sensible'
+" Plug 'mbbill/undotree'
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 " else
