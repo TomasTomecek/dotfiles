@@ -1,4 +1,26 @@
 #!/usr/bin/python3
+# Copyright (c) 2018 Tomas Tomecek. All rights reserved.
+#
+# This work is licensed under the terms of the MIT license.
+# For a copy, see <https://opensource.org/licenses/MIT>.
+"""
+List github releases and git tags for a selected repository.
+
+In order to use this script, you need to have [GitHub API token](https://github.com/settings/tokens) present at:
+    ~/.github.token
+
+## Usage
+
+$ gh-list-releases fedora-modularity/conu
+TAG                  TITLE                          AUTHOR
+0.2.0                0.2.0                          TomasTomecek
+0.1.0                0.1.0                          TomasTomecek
+SHA                                           NAME                 AUTHOR
+90fb29da711c5f9b6d0d79723cac1e74409e228c      0.2.0                dhodovsk
+3942268ab0050e3c36c0741e209ea1edc09651bf      0.2.0rc0             TomasTomecek
+244dc32a37b8221013693e5813e16cfbfeabbd7a      0.1.1                TomasTomecek
+8079386cf23368d7530c2bd419d012dbf7dc25a8      0.1.0                dhodovsk
+"""
 
 import os
 import sys
@@ -19,6 +41,7 @@ def main():
 
     releases = target_repo.get_releases()
 
+    # TODO: use tabulate instead
     release_fmt = "{tag:20} {title:30} {author}"
     print(release_fmt.format(
         tag="TAG",

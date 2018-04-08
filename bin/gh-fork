@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+# Copyright (c) 2018 Tomas Tomecek. All rights reserved.
+#
+# This work is licensed under the terms of the MIT license.
+# For a copy, see <https://opensource.org/licenses/MIT>.
 
 """
 Usage:
@@ -15,6 +19,7 @@ Functionality:
 3. Cd to the repo
 4. Set remote upstream
 4. Set remote origin
+5. Fetch all
 """
 
 import os

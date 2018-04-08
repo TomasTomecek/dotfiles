@@ -1,4 +1,22 @@
 #!/usr/bin/python3
+# Copyright (c) 2018 Tomas Tomecek. All rights reserved.
+#
+# This work is licensed under the terms of the MIT license.
+# For a copy, see <https://opensource.org/licenses/MIT>.
+"""
+List pull requests for a github repository.
+
+In order to use this script, you need to have [GitHub API token](https://github.com/settings/tokens) present at:
+    ~/.github.token
+
+## Usage
+
+List PRs for this github repo:
+    $ gh-list-prs
+
+List PRs for the selected github repo:
+    $ gh-list-prs fedora-modularity/conu
+"""
 
 import os
 import re

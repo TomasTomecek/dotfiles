@@ -1,4 +1,22 @@
 #!/usr/bin/python3
+# Copyright (c) 2018 Tomas Tomecek. All rights reserved.
+#
+# This work is licensed under the terms of the MIT license.
+# For a copy, see <https://opensource.org/licenses/MIT>.
+"""
+This simple script will `git checkout` a pull request locally.
+
+It is required to have pull requests available as refs `<remote>/pr/<num>`.
+
+## Usage
+
+Check out latest pull request in current git repo:
+    $ checkout-pr
+
+Check out selected pull request in current git repo:
+    $ checkout-pr 123
+"""
+
 import sys
 import subprocess
 
