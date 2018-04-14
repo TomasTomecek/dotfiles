@@ -59,7 +59,7 @@ alias vr="vim README*"
 alias vy="vim ./*.y*ml"
 alias v="vim"
 # halp!!1!
-alias h="less ~/.dotfiles/mysterious-keybinds/README.md"
+alias h="less ~/.dotfiles/mysterious-keybinds/README.md ~/.dotfiles/ext/dotfiles-secret/myst.md"
 
 alias m="make"
 alias sem="sudo -E make"

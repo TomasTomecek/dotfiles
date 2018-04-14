@@ -10,6 +10,9 @@
 [submodule "sbin"]
 	path = sbin
 	url = jahoda:gitkwak/dotfiles-sbin.git
+[submodule "secret"]
+	path = ext/dotfiles-secret
+	url = jahoda:gitkwak/dotfiles-secret
 [submodule "mysterious-keybinds"]
 	path = mysterious-keybinds
 	url = git@github.com:TomasTomecek/mysterious-keybinds
