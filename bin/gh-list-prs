@@ -42,7 +42,11 @@ def discover_repo_name():
     u = get_url_for_remote("upstream")
     if not u:
         u = get_url_for_remote("origin")
-    _, full_name = u.rsplit(":", 1)
+    if "http" in u:
+        # magic to split https://gh.c/a/b
+        full_name = u.split("/", 3)[-1]
+    else:
+        _, full_name = u.rsplit(":", 1)
     return full_name
 
 
@@ -59,7 +63,7 @@ def main():
 
     repo = g.get_repo(full_repo_name)
 
-    prs = repo.get_pulls(state="open", sort="updated")
+    prs = list(repo.get_pulls(state="open", sort="updated"))
 
     print(tabulate([
         (
