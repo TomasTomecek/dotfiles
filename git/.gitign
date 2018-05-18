@@ -4,3 +4,4 @@
 *.egg-info/
 .*.swp
 .cache
+rebase-helper-results/
