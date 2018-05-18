@@ -49,10 +49,11 @@ def main():
         author="AUTHOR"
     ))
     for release in releases[:5]:
+        author = release.author.raw_data["login"] or ""
         line = release_fmt.format(
-            tag=release.tag_name,
+            tag=release.tag_name or "",
             title=release.title,
-            author=release.author.raw_data["login"]
+            author=author
         )
         print(line)
 
