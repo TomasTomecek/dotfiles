@@ -131,7 +131,7 @@ alias dp="sudo docker ps"
 alias dpa="sudo docker ps -a"
 alias dr="sudo docker run"
 alias drt="sudo docker run --rm -ti"
-alias drtb="sudo docker run --rm -ti -v $PWD:/src registry.fedoraproject.org/fedora:28 bash"
+alias drtb="sudo docker run --rm -ti -v $PWD:/src:Z -v /run/docker.sock:/run/docker.sock registry.fedoraproject.org/fedora:28 bash"
 alias de="sudo docker exec"
 alias det="sudo docker exec -ti"
 drm() { sudo docker rm -f $(docker ps -a -q) }
