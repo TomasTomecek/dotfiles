@@ -36,6 +36,12 @@
 [commit]
     template = ~/.dotfiles/git/.git-template
 [remote "origin"]
+    # github, pagure
     fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
+    # gitlab
+    fetch = +refs/merge-requests/*/head:refs/remotes/origin/mr/*
 [remote "upstream"]
+    # github, pagure
     fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
+    # gitlab
+    fetch = +refs/merge-requests/*/head:refs/remotes/upstream/mr/*
