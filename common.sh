@@ -40,7 +40,6 @@ alias tree="tree -C"
 alias rsync="rsync -Prza"  # progress, recursive, compress, archive
 alias curl="curl -L"
 alias diff="diff --color=always -u"
-alias sen="sudo sen"
 
 # vim aliases/functions
 vim() {
@@ -138,6 +137,7 @@ alias de="sudo docker exec"
 alias det="sudo docker exec -ti"
 drm() { sudo docker rm -f $(docker ps -a -q) }
 drmi() { sudo docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
+alias sen="sen --yolo"
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
