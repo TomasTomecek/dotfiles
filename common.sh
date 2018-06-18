@@ -66,6 +66,8 @@ alias sem="sudo -E make"
 
 alias a=ansible-playbook
 
+alias sd="sudo su -"
+
 # git aliases
 alias g="git"
 alias gs="git status --show-stash"
