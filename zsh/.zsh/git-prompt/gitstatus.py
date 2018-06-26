@@ -1,1 +1,0 @@
-../../../ext/zsh-git-prompt/gitstatus.py
