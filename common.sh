@@ -43,7 +43,7 @@ alias curl="curl -L"
 alias diff="diff --color=always -u"
 
 # vim aliases/functions
-vim() {
+v() {
   if [ -f /usr/bin/nvim ] ; then
     /usr/bin/nvim ${@} ;
   elif [ -f /usr/bin/vimx ] ; then
@@ -58,7 +58,6 @@ alias vd="vim Dockerfile"
 alias vr="vim README*"
 alias vy="vim ./*.y*ml"
 alias vv="vim ./Vagrantfile"
-alias v="vim"
 # halp!!1!
 alias h="less ~/.dotfiles/mysterious-keybinds/README.md ~/.dotfiles/ext/dotfiles-secret/myst.md"
 
