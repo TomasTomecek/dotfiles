@@ -38,6 +38,7 @@ alias lla="ls -lha --color=auto"
 alias vR="vim -R"
 alias tree="tree -C"
 alias rsync="rsync -Prza"  # progress, recursive, compress, archive
+alias dd="dd status=progress"
 alias curl="curl -L"
 alias diff="diff --color=always -u"
 
