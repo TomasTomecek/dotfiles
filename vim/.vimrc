@@ -36,10 +36,10 @@ Plug 'Lokaltog/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 Plug 'Shougo/denite.nvim'
 
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 call plug#end()
 
