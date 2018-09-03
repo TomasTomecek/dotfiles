@@ -5,3 +5,4 @@
 .*.swp
 .cache
 rebase-helper-results/
+.pytest_cache/
