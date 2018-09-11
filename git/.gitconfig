@@ -1,6 +1,7 @@
 [user]
     name = Tomas Tomecek
     email = ttomecek@redhat.com
+    signingkey = CE74F827
 [color]
     ui = auto
 [core]
