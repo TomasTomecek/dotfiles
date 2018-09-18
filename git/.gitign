@@ -5,4 +5,5 @@
 .*.swp
 .cache
 rebase-helper-results/
-.pytest_cache/
+.pytest_cache
+.vagrant/
