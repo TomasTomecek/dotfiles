@@ -141,6 +141,7 @@ alias det="sudo docker exec -ti"
 drm() { sudo docker rm -f $(docker ps -a -q) }
 drmi() { sudo docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
 alias sen="sen --yolo"
+alias find-todo="egrep -R '(TODO|FIXME)' ."
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
