@@ -140,12 +140,13 @@ alias pp="podman ps -a"
 alias drt="docker run --rm -ti"
 alias prt="podman run --rm -ti"
 alias drtb="docker run --rm -ti -v $(pwd):/src:Z -v /run/docker.sock:/run/docker.sock registry.fedoraproject.org/fedora:29 bash"
-alias prtb="podman run --rm -ti -v $(pwd):/src:Z registry.fedoraproject.org/fedora:29 bash"
+alias prtb="podman run --rm -ti -v $(pwd):/src registry.fedoraproject.org/fedora:29 bash"
 alias det="docker exec -ti"
 alias pet="podman exec -ti"
 drm() { sudo docker rm -f $(docker ps -a -q) }
 drmi() { sudo docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
 prmi-filter() { podman rmi $(podman images | grep ${1} | awk '{print $3}') }
+prm-filter() { podman rm $(podman ps -a | grep ${1} | awk '{print $1}') }
 alias sen="sen --yolo"
 alias find-todo="egrep -R '(TODO|FIXME)' ."
 
