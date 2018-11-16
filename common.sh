@@ -145,6 +145,7 @@ alias det="docker exec -ti"
 alias pet="podman exec -ti"
 drm() { sudo docker rm -f $(docker ps -a -q) }
 drmi() { sudo docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
+prmi-filter() { podman rmi $(podman images | grep ${1} | awk '{print $3}') }
 alias sen="sen --yolo"
 alias find-todo="egrep -R '(TODO|FIXME)' ."
 
