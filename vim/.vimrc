@@ -59,6 +59,8 @@ set number
 set ignorecase
 set smartcase
 
+set guifont=Monospace\ 16
+
 " copy selections to X clipboard
 set clipboard=unnamed
 
