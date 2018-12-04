@@ -1,0 +1,17 @@
+#!/usr/bin/python3
+"""
+This script is meant to be used in tmux when copying terminal output - it sanitizes my custom prompt to:
+
+    $ command --opts and args
+"""
+
+import re
+import sys
+
+for line in sys.stdin:
+    line = line.strip("\n")
+    reg = r"^[a-z]+ at [a-z]+ [~\./-_a-zA-Z0-9]+ (?P<cmd>.+?)   .+$"
+    rr = re.compile(reg)
+    # import ipdb; ipdb.set_trace()
+    inp = rr.sub("\n$ \g<cmd>", line)
+    print(inp)
