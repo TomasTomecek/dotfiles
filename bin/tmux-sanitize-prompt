@@ -10,7 +10,7 @@ import sys
 
 for line in sys.stdin:
     line = line.strip("\n")
-    reg = r"^[a-z]+ at [a-z]+ [~\./-_a-zA-Z0-9]+ (?P<cmd>.+?)   .+$"
+    reg = r"^[a-z]+ at [a-z]+ [~\./\-_a-zA-Z0-9]+ (?P<cmd>.+?)   .+$"
     rr = re.compile(reg)
     # import ipdb; ipdb.set_trace()
     inp = rr.sub("\n$ \g<cmd>", line)
