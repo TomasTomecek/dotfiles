@@ -8,3 +8,4 @@ dist/
 rebase-helper-results/
 .pytest_cache
 .vagrant/
+openshift.local.clusterup/
