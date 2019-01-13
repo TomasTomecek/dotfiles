@@ -66,6 +66,7 @@ alias m="make"
 alias sem="sudo -E make"
 
 alias a=ansible-playbook
+alias ab=ansible-bender
 
 alias sd="sudo su -"
 
