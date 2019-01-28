@@ -66,6 +66,21 @@ values:
       pre_format: '│'
       post_format: ''
     - type: remote_difference
+      remote_branch: 'origin/master'
+      display_if_uptodate: false
+      pre_format: ''
+      post_format: ''
+      values:
+        - type: name
+          pre_format: '%{%F{green}%}<REMOTE>'
+          post_format: '%{%f%}'
+        - type: ahead
+          pre_format: '%{%F{white}%}↑'
+          post_format: '%{%f%}'
+        - type: behind
+          pre_format: '%{%F{white}%}↓'
+          post_format: '%{%f%}'
+    - type: remote_difference
       remote_branch: 'upstream/master'
       display_if_uptodate: false
       pre_format: ''
