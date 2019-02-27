@@ -73,6 +73,8 @@ alias sd="sudo su -"
 
 # git aliases
 alias g="git"
+alias master="git checkout master"
+alias gaf="git add -u && git commit -m f"
 alias gs="git status --show-stash"
 alias gst="git stash"
 alias gsp="git stash pop"
