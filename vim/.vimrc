@@ -137,6 +137,7 @@ autocmd FileType \(sh\|yaml\|javascript\|html\|htmldjango\|css\) setlocal tabsto
 autocmd FileType \(html\|htmldjango\|css\) setlocal noet
 autocmd FileType mail setlocal textwidth=80
 autocmd FileType mail setlocal spell spelllang=en
+autocmd FileType markdown setlocal spell spelllang=en
 autocmd FileType go setlocal nolist  " go uses /t
 au BufNewFile,BufFilePre,BufRead *.md set filetype=markdown
 
