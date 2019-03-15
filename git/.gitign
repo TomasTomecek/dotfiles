@@ -10,3 +10,7 @@ rebase-helper-results/
 .vagrant/
 openshift.local.clusterup/
 *.retry
+.tox
+*.tar.gz
+*.src.rpm
+.mypy_cache/
