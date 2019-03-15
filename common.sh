@@ -190,7 +190,7 @@ rpmg () {
 rpmqlg () { rpm -ql $1 | grep $2; }
 llg () { ls -lhat | grep -i "${1}" ; }
 psg () { ps aux | grep -i "${1}" ; }
-gg () { grep -inR --exclude-dir=".git" --color=always "${1}" . ; }
+gg () { grep -inR --exclude-dir=".git" --exclude-dir=".tox" --color=always "${1}" . ; }
 
 ff () { find . -iname "*${1}*" ; }
 laptop () {
