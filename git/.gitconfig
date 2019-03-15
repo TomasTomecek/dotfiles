@@ -9,11 +9,8 @@
     ignorecase = false
     excludesfile = ~/.gitign
 [alias]
-    ci = commit --verbose
-    st = status
     co = checkout
     br = branch
-    pu = push
     a = add
     d = diff
     r = reset
