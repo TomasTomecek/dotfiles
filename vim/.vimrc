@@ -116,6 +116,8 @@ inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 " let g:jedi#completions_enabled = 0
 " let g:jedi#use_tabs_not_buffers = 1
 
+" ignore content of these dirs in search
+set wildignore+=.tox/,.idea/,.mypy_cache/
 " show hidden files
 let g:ctrlp_show_hidden = 1
 
