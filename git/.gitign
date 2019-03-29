@@ -14,3 +14,4 @@ openshift.local.clusterup/
 *.tar.gz
 *.src.rpm
 .mypy_cache/
+.coverage
