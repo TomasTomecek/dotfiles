@@ -162,6 +162,8 @@ prm-filter() { podman rm $(podman ps -a | grep ${1} | awk '{print $1}') }
 alias sen="sen --yolo"
 alias find-todo="egrep -R '(TODO|FIXME)' ."
 
+dig() { dig $@ +nostats +nocomments +nocmd }
+
 alias o="oc"
 alias oga="oc get all"
 alias wo="watch oc get all"
