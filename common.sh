@@ -110,6 +110,7 @@ alias gra="git remote add"
 alias grv="git remote -v"
 alias gcl="git clone"
 alias gfa="git fetch --all"
+alias gfu="git fetch upstream"
 alias gsp="git submodule foreach git pull --rebase origin master"
 gi() { git init . && git add . && git commit -m ${1:-init} >/dev/null; }
 alias e="egrep"
