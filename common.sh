@@ -156,8 +156,8 @@ alias prtb="podman run --rm -ti -v $(pwd):/src registry.fedoraproject.org/fedora
 alias sprtb="sudo podman run --rm -ti -v $(pwd):/src:Z registry.fedoraproject.org/fedora:29 bash"
 alias det="docker exec -ti"
 alias pet="podman exec -ti"
-drm() { sudo docker rm -f $(docker ps -a -q) }
-drmi() { sudo docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
+drm() { docker rm -f $(docker ps -a -q) }
+drmi() { docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
 prmi-filter() { podman rmi $(podman images | grep ${1} | awk '{print $3}') }
 prm-filter() { podman rm $(podman ps -a | grep ${1} | awk '{print $1}') }
 docker-get-ip() { docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1; }
