@@ -167,6 +167,7 @@ alias find-todo="egrep -R '(TODO|FIXME)' ."
 dig() { /usr/bin/dig $@ +nostats +nocomments +nocmd; }
 
 alias o="oc"
+alias os="oc status"
 alias oga="oc get all"
 alias wo="watch oc get all"
 
