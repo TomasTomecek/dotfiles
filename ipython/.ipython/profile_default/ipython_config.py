@@ -1,15 +1,16 @@
 # Configuration file for ipython.
 c = get_config()
 c.InteractiveShellApp.exec_lines = [
-	'import os',
-	'import sys',
-	'import re',
-	'import json',
-	'import subprocess',
-	'import docker',
-	'import requests',
-	'import datetime',
-	'import random',
+        'import os',
+        'import sys',
+        'import re',
+        'import json',
+        'import subprocess',
+        'import docker',
+        'import requests',
+        'import datetime',
+        'import random',
+        'import pathlib',
 ]
 c.InteractiveShellApp.extensions = ['autoreload',]
 c.InteractiveShellApp.exec_files = ['init.ipy']
