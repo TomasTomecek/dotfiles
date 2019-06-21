@@ -234,3 +234,13 @@ nicemount() { (echo "DEVICE PATH TYPE FLAGS" && mount | awk '$2=$4="";1') | colu
 
 # "disable" ctrl-{s,q}
 stty start '^-' stop '^-'
+
+new-oc-cluster() {
+  local data_path="$HOME/openshift.local.clusterup"
+  echo $data_path
+  oc cluster down || :
+  sudo umount $(sudo find $data_path) >/dev/null
+  sudo rm -rf $data_path
+  oc cluster --base-dir=$data_path up
+  oc login -u developer -p developer https://localhost:8443
+}
