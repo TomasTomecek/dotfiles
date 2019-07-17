@@ -171,6 +171,8 @@ alias os="oc status"
 alias oga="oc get all"
 alias wo="watch oc get all"
 
+alias pt="pytest-3 -vv --showlocals"
+
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
 alias pm-suspend="xscreensaver-command -lock ; pm-suspend"
