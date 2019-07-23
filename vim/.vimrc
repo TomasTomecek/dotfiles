@@ -14,16 +14,16 @@ Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'davidhalter/jedi-vim'
-Plug 'zchee/deoplete-jedi'
+" Plug 'zchee/deoplete-jedi'
 Plug 'tpope/vim-sensible'
 " Plug 'mbbill/undotree'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
 function! FreshGoBinaries(info)
   " info is a dictionary with 3 fields
   " - name:   name of the plugin
@@ -35,7 +35,7 @@ endfunction
 Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kien/ctrlp.vim'
-Plug 'Shougo/denite.nvim'
+" Plug 'Shougo/denite.nvim'
 
 " Plug 'autozimu/LanguageClient-neovim', {
 "     \ 'branch': 'next',
