@@ -75,7 +75,7 @@ alias sd="sudo su -"
 alias pa=packit
 # git aliases
 alias g="git"
-alias master="git checkout master"
+alias gm="git checkout master"
 alias gaf="git add -u && git commit -m f"
 alias gs="git status --show-stash"
 alias gst="git stash"
