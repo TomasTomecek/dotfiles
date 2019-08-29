@@ -170,6 +170,8 @@ alias o="oc"
 alias os="oc status"
 alias oga="oc get all"
 alias wo="watch oc get all"
+alias od="oc describe"
+alias og="oc get"
 
 alias pt="pytest-3 -vv --showlocals"
 
