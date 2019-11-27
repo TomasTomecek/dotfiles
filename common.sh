@@ -200,7 +200,7 @@ rpmg () {
 rpmqlg () { rpm -ql $1 | grep $2; }
 llg () { ls -lhat | grep -i "${1}" ; }
 psg () { ps aux | grep -i "${1}" ; }
-gg () { grep -inR --exclude-dir=".git" --exclude-dir=".tox" --exclude=".mypy_cache" --color=always "${1}" . ; }
+gg () { grep -inR --exclude-dir=".git" --exclude-dir=".tox" --exclude-dir=".mypy_cache" --color=always "${1}" . ; }
 
 ff () { find . -iname "*${1}*" ; }
 laptop () {
