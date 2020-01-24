@@ -1,58 +1,65 @@
 {
-	"net": {
-		"interfaces": {
-			"enp0s25": {
-				"alias": "E",
-				"label_color_fg": "white",
-				"label_color_bg": "default",
-				"address_color_fg": "colour4",
-				"address_color_bg": "default"
-			},
-			"enp5s0": {
-				"alias": "E",
-				"label_color_fg": "white",
-				"label_color_bg": "default",
-				"address_color_fg": "colour4",
-				"address_color_bg": "default"
-			},
-			"enp0s31f6": {
-				"alias": "E",
-				"label_color_fg": "white",
-				"label_color_bg": "default",
-				"address_color_fg": "colour4",
-				"address_color_bg": "default"
-			},
-			"eth0": {
-				"alias": "E",
-				"label_color_fg": "white",
-				"label_color_bg": "default",
-				"address_color_fg": "colour4",
-				"address_color_bg": "default"
-			},
-			"wlp3s0": {
-				"alias": "W",
-				"label_color_fg": "white",
-				"label_color_bg": "default",
-				"address_color_fg": "green",
-				"address_color_bg": "default"
-			},
-			"wlp61s0": {
-				"alias": "W",
-				"label_color_fg": "white",
-				"label_color_bg": "default",
-				"address_color_fg": "green",
-				"address_color_bg": "default"
-			},
-			"tun0": {
-				"alias": "V",
-				"label_color_fg": "white",
-				"label_color_bg": "default",
-				"address_color_fg": "colour3",
-				"address_color_bg": "default"
-			}
-		}
-	},
-	"sensors": {
-		"template": "{{range $i, $device := .Devices}}{{if eq $device.Name \"coretemp\"}}{{range $j, $e := .Stats}}{{if gt .CurrentTemp 60.0}}{{tmux_display \"default\" \"colour1\" $e.CurrentTemp}} {{else if gt $e.CurrentTemp 70.0}}{{tmux_display \"default\" \"colour14\" $e.CurrentTemp }} {{end}}{{end}}{{end}}{{end}}"
-	}
+    "net": {
+        "interfaces": {
+            "enp0s25": {
+                "alias": "E",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "colour4",
+                    "address_color_bg": "default"
+            },
+                "enp5s0": {
+                    "alias": "E",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "colour4",
+                    "address_color_bg": "default"
+                },
+                "enp0s31f6": {
+                    "alias": "E",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "colour4",
+                    "address_color_bg": "default"
+                },
+                "enp11s0u1": {
+                    "alias": "E",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "colour4",
+                    "address_color_bg": "default"
+                },
+                "eth0": {
+                    "alias": "E",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "colour4",
+                    "address_color_bg": "default"
+                },
+                "wlp3s0": {
+                    "alias": "W",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "green",
+                    "address_color_bg": "default"
+                },
+                "wlp61s0": {
+                    "alias": "W",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "green",
+                    "address_color_bg": "default"
+                },
+                "tun0": {
+                    "alias": "V",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "colour3",
+                    "address_color_bg": "default"
+                }
+        }
+    },
+        "sensors": {
+            "template": "{{range $i, $device := .Devices}}{{if eq $device.Name \"coretemp\"}}{{range $j, $e := .Stats}}{{if gt .CurrentTemp 60.0}}{{tmux_display \"default\" \"colour1\" $e.CurrentTemp}} {{else if gt $e.CurrentTemp 70.0}}{{tmux_display \"default\" \"colour14\" $e.CurrentTemp }} {{end}}{{end}}{{end}}{{end}}"
+        }
 }
