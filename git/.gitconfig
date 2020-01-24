@@ -43,3 +43,5 @@
     fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
     # gitlab
     fetch = +refs/merge-requests/*/head:refs/remotes/upstream/mr/*
+[rerere]
+    enabled = true
