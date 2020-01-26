@@ -25,6 +25,7 @@
     prompt = false
 [tig "bind"]
     status = C !git commit --verbose
+    main = R !git rebase -i %(commit)^
 [merge]
     tool = vimdiff
     conflictstyle = diff3
