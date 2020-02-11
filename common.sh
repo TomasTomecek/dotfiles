@@ -241,10 +241,9 @@ stty start '^-' stop '^-'
 
 new-oc-cluster() {
   local data_path="$HOME/openshift.local.clusterup"
-  echo $data_path
   oc cluster down || :
   sudo umount $(sudo find $data_path) >/dev/null
   sudo rm -rf $data_path
-  oc cluster --base-dir=$data_path up
+  oc cluster --base-dir=$data_path up --enable="-centos-imagestreams,-sample-templates,persistent-volumes,registry,router,web-console"
   oc login -u developer -p developer https://localhost:8443
 }
