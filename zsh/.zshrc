@@ -74,7 +74,7 @@ source_env() {
         if [[ "${CURRENT_DIR}" = "/" ]] ; then
             kill -INT $$
         fi
-        local ENV_PATH="${CURRENT_DIR}/.env"
+        local ENV_PATH="${CURRENT_DIR}/.custom-env"
         if [[ -f ${ENV_PATH} && -r ${ENV_PATH} ]]; then
             source ${ENV_PATH}
             # TODO: create hook when entering git repo
