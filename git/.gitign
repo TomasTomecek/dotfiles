@@ -1,6 +1,7 @@
 *.py[co]
 .idea
 .env
+.custom-env
 *.egg-info/
 dist/
 .*.swp
