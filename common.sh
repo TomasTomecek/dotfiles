@@ -73,6 +73,8 @@ alias ab=ansible-bender
 alias sd="sudo su -"
 
 alias pa=packit
+alias u=upsint
+alias us="upsint status"
 # git aliases
 alias g="git"
 alias gm="git checkout master"
