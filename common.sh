@@ -76,7 +76,7 @@ alias pa=packit
 alias u=upsint
 alias us="upsint status"
 alias uc="upsint create-pr"
-alias uco="upsint checout-pr"
+alias uco="upsint checkout-pr"
 alias ul="upsint list-prs"
 # git aliases
 alias g="git"
