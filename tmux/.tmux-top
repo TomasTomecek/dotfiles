@@ -2,56 +2,56 @@
     "net": {
         "interfaces": {
             "enp0s25": {
-                "alias": "E",
+                "alias": "∃",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "colour4",
                     "address_color_bg": "default"
             },
                 "enp5s0": {
-                    "alias": "E",
+                    "alias": "∃",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "colour4",
                     "address_color_bg": "default"
                 },
                 "enp0s31f6": {
-                    "alias": "E",
+                    "alias": "∃",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "colour4",
                     "address_color_bg": "default"
                 },
                 "enp11s0u1": {
-                    "alias": "E",
+                    "alias": "∃",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "colour4",
                     "address_color_bg": "default"
                 },
                 "eth0": {
-                    "alias": "E",
+                    "alias": "∃",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "colour4",
                     "address_color_bg": "default"
                 },
                 "wlp3s0": {
-                    "alias": "W",
+                    "alias": "∈",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "green",
                     "address_color_bg": "default"
                 },
                 "wlp61s0": {
-                    "alias": "W",
+                    "alias": "∈",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "green",
                     "address_color_bg": "default"
                 },
                 "tun0": {
-                    "alias": "V",
+                    "alias": "∀",
                     "label_color_fg": "white",
                     "label_color_bg": "default",
                     "address_color_fg": "colour3",
