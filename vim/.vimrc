@@ -24,6 +24,8 @@ Plug 'tpope/vim-sensible'
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
 function! FreshGoBinaries(info)
   " info is a dictionary with 3 fields
   " - name:   name of the plugin
