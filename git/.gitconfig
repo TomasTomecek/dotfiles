@@ -46,3 +46,5 @@
     fetch = +refs/merge-requests/*/head:refs/remotes/upstream/mr/*
 [rerere]
     enabled = true
+[help]
+    autocorrect = -42
