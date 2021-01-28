@@ -95,7 +95,7 @@ alias gc="git commit --verbose"
 alias gcS="git commit --verbose -S"
 alias gca="git commit --verbose --amend"
 alias gpr="git pull --rebase --recurse-submodules"
-alias gpum="git pull --rebase upstream master"
+gpum() { git pull --rebase upstream main; git pull --rebase upstream master; }
 alias gpom="git pull --rebase origin master"
 alias gau="git add --verbose --update -- ."
 alias gaa="git add --verbose --all -- ."
