@@ -80,7 +80,6 @@ alias uco="upsint checkout-pr"
 alias ul="upsint list-prs"
 # git aliases
 alias g="git"
-alias gm="git checkout master"
 alias gaf="git add -u && git commit -m f"
 alias gs="git status --show-stash"
 alias gst="git stash"
@@ -96,6 +95,7 @@ alias gcS="git commit --verbose -S"
 alias gca="git commit --verbose --amend"
 alias gpr="git pull --rebase --recurse-submodules"
 gpum() { git pull --rebase upstream main; git pull --rebase upstream master; }
+gm() { git checkout main; git checkout master; }
 alias gpom="git pull --rebase origin master"
 alias gau="git add --verbose --update -- ."
 alias gaa="git add --verbose --all -- ."
