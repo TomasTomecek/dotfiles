@@ -163,6 +163,7 @@ alias det="docker exec -ti"
 alias pet="podman exec -ti"
 drm() { docker rm -f $(docker ps -a -q) }
 drmi() { docker rmi $(docker images -a | grep "^<none>" | awk '{print $3}') }
+prmi() { podman rmi $(podman images -a | grep "^<none>" | awk '{print $3}') }
 prmi-filter() { podman rmi $(podman images | grep ${1} | awk '{print $3}') }
 prm-filter() { podman rm $(podman ps -a | grep ${1} | awk '{print $1}') }
 docker-get-ip() { docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1; }
