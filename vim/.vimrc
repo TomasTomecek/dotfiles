@@ -34,7 +34,7 @@ function! FreshGoBinaries(info)
   :GoInstallBinaries
   :GoUpdateBinaries
 endfunction
-Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
+" Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
 Plug 'Lokaltog/vim-easymotion'
 Plug 'kien/ctrlp.vim'
 " Plug 'Shougo/denite.nvim'
