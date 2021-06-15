@@ -180,6 +180,7 @@ alias od="oc describe"
 alias og="oc get"
 
 alias pt="pytest-3 -vv --showlocals"
+alias prcal="pre-commit run --all-files"
 
 # root aliases
 alias monitor="xrandr --auto && xrandr --output LVDS1 --off"
