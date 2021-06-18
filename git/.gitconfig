@@ -19,6 +19,7 @@
     rebase = true
 [push]
     default = current
+    followTags = true
 [diff]
     tool = vimdiff
 [difftool]
