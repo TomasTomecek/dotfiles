@@ -7,7 +7,7 @@ call plug#begin('~/.vim/plugged')
 
 " Plugin 'rust-lang/rust.vim'
 " Plugin 'jelera/vim-javascript-syntax'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 Plug 'jwhitley/vim-colors-solarized'
 Plug 'bling/vim-airline'
