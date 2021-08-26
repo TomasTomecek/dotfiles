@@ -56,6 +56,13 @@
                     "label_color_bg": "default",
                     "address_color_fg": "colour3",
                     "address_color_bg": "default"
+                },
+                "wlp0s20f3": {
+                    "alias": "∀",
+                    "label_color_fg": "white",
+                    "label_color_bg": "default",
+                    "address_color_fg": "colour3",
+                    "address_color_bg": "default"
                 }
         }
     },
