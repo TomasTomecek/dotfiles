@@ -94,6 +94,7 @@ alias gc="git commit --verbose"
 alias gcS="git commit --verbose -S"
 alias gca="git commit --verbose --amend"
 alias gpr="git pull --rebase --recurse-submodules"
+grhu() { git reset --hard upstream/main || git reset --hard upstream/master }
 gpum() { git pull --rebase upstream main; git pull --rebase upstream master; }
 gm() { git checkout main || git checkout master; }
 alias gpom="git pull --rebase origin master"
@@ -105,7 +106,6 @@ alias grc="git rebase --continue"
 alias grab="git rebase --abort"
 alias grh="git reset --hard"
 alias grho="git reset --hard origin/master"
-alias grhu="git reset --hard upstream/master"
 alias gb="git checkout -B"
 alias gba="git branch --all"
 alias grau="git remote add upstream"
