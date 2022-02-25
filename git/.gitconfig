@@ -49,3 +49,5 @@
     enabled = true
 [help]
     autocorrect = -42
+[init]
+	defaultBranch = main
