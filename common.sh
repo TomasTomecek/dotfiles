@@ -94,11 +94,24 @@ alias gc="git commit --verbose"
 alias gcS="git commit --verbose -S"
 alias gca="git commit --verbose --amend"
 alias gpr="git pull --rebase --recurse-submodules"
-grhu() { git reset --hard upstream/main || git reset --hard upstream/master || git pull --hard origin main || git reset --hard origin master; }
-gpum() { git pull --rebase upstream main || git pull --rebase upstream master || git pull --rebase origin main || git pull --rebase origin master; }
-gb() { git checkout -B $@; git fetch --all; grhu }
-gm() { git checkout main || git checkout master; }
-alias gpom="git pull --rebase origin master"
+# Check if main exists and use instead of master
+# stolen from ohmyzsh: https://github.com/ohmyzsh/ohmyzsh/blob/4dce175e0e4a678b7f93be80c64247c8f5fbab3e/plugins/git/git.plugin.zsh#L31
+function git_main_branch() {
+  command git rev-parse --git-dir &>/dev/null || return
+  local ref
+  for ref in refs/{heads,remotes/{origin,upstream}}/{main,trunk}; do
+    if command git show-ref -q --verify $ref; then
+      echo ${ref:t}
+      return
+    fi
+  done
+  echo master
+}
+grhu() { local main=$(git_main_branch); git reset --hard upstream/$main || git reset --hard origin/$main; }
+gpum() { git pull --rebase upstream $main || git pull --rebase origin $main; }
+gb() { git checkout -B $@; git fetch --all; grhu; }
+gm() { git checkout $main; }
+gpom(){ git pull --rebase origin $(git_main_branch); }
 alias gau="git add --verbose --update -- ."
 alias gaa="git add --verbose --all -- ."
 alias gr="git rebase"
