@@ -108,9 +108,9 @@ function git_main_branch() {
   echo master
 }
 grhu() { local main=$(git_main_branch); git reset --hard upstream/$main || git reset --hard origin/$main; }
-gpum() { git pull --rebase upstream $main || git pull --rebase origin $main; }
+gpum() { local main=$(git_main_branch); git pull --rebase upstream $main || git pull --rebase origin $main; }
 gb() { git checkout -B $@; git fetch --all; grhu; }
-gm() { git checkout $main; }
+gm() { git checkout $(git_main_branch); }
 gpom(){ git pull --rebase origin $(git_main_branch); }
 alias gau="git add --verbose --update -- ."
 alias gaa="git add --verbose --all -- ."
