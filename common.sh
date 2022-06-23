@@ -13,7 +13,7 @@ export LESS="-n -r -X"
 export AUTOJUMP_KEEP_SYMLINKS=1
 [[ -s /etc/profile.d/autojump.sh ]] && source /etc/profile.d/autojump.sh
 [[ -s ~/.dotfiles/ext/dotfiles-secret/common.sh ]] && source ~/.dotfiles/ext/dotfiles-secret/common.sh
-export GOPATH="${HOME}/dev/go:/usr/share/gocode/"
+export GOPATH="${HOME}/dev/go:${HOME}/go:/usr/share/gocode/"
 export GOBIN="${HOME}/dev/go/bin"
 
 export PATH=~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/:${GOBIN}:${PATH}
