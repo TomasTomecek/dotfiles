@@ -13,7 +13,7 @@ Plug 'jwhitley/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'davidhalter/jedi-vim'
+" Plug 'davidhalter/jedi-vim'
 " Plug 'zchee/deoplete-jedi'
 Plug 'tpope/vim-sensible'
 " Plug 'mbbill/undotree'
@@ -24,19 +24,22 @@ Plug 'tpope/vim-sensible'
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
-Plug 'roxma/nvim-yarp'
+" compat plugin for vim 8
 Plug 'roxma/vim-hug-neovim-rpc'
-function! FreshGoBinaries(info)
-  " info is a dictionary with 3 fields
-  " - name:   name of the plugin
-  " - status: 'installed', 'updated', or 'unchanged'
-  " - force:  set on PlugInstall! or PlugUpdate!
-  :GoInstallBinaries
-  :GoUpdateBinaries
-endfunction
+" Another Remote Plugin Framework for Neovim
+Plug 'roxma/nvim-yarp', { 'do': 'pip install -r requirements.txt' }
+" function! FreshGoBinaries(info)
+"   " info is a dictionary with 3 fields
+"   " - name:   name of the plugin
+"   " - status: 'installed', 'updated', or 'unchanged'
+"   " - force:  set on PlugInstall! or PlugUpdate!
+"   :GoInstallBinaries
+"   :GoUpdateBinaries
+" endfunction
 " Plug 'fatih/vim-go', { 'do': function('FreshGoBinaries') }
-Plug 'Lokaltog/vim-easymotion'
+" Plug 'Lokaltog/vim-easymotion'
 Plug 'kien/ctrlp.vim'
+Plug 'raghur/vim-ghost', {'do': ':GhostInstall'}
 " Plug 'Shougo/denite.nvim'
 
 " Plug 'autozimu/LanguageClient-neovim', {
