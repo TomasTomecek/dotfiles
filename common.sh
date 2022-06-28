@@ -109,7 +109,7 @@ function git_main_branch() {
 }
 grhu() { local main=$(git_main_branch); git reset --hard upstream/$main || git reset --hard origin/$main; }
 gpum() { local main=$(git_main_branch); git pull --rebase upstream $main || git pull --rebase origin $main; }
-gb() { git checkout -B $@; git fetch --all; grhu; }
+gb() { local old_ref=$(git rev-parse HEAD) && git checkout -B $@ && grhu && git rebase $old_ref; gpum; }
 gm() { git checkout $(git_main_branch); }
 gpom(){ git pull --rebase origin $(git_main_branch); }
 alias gau="git add --verbose --update -- ."
