@@ -40,11 +40,13 @@
     fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
     # gitlab
     fetch = +refs/merge-requests/*/head:refs/remotes/origin/mr/*
+    tagOpt = --tags
 [remote "upstream"]
     # github, pagure
     fetch = +refs/pull/*/head:refs/remotes/upstream/pr/*
     # gitlab
     fetch = +refs/merge-requests/*/head:refs/remotes/upstream/mr/*
+    tagOpt = --tags
 [rerere]
     enabled = true
 [help]
