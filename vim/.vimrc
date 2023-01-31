@@ -89,7 +89,7 @@ set undofile
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
-colorscheme solarized
+colorscheme solarized " peachpuff
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
 cmap w!! w !sudo tee > /dev/null %
