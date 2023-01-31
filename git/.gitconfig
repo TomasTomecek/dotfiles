@@ -52,6 +52,6 @@
 [help]
     autocorrect = -42
 [init]
-	defaultBranch = main
+    defaultBranch = main
 [safe]
-	directory = /tmp/sandcastle
+    directory = /tmp/sandcastle
