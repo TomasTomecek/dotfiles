@@ -15,9 +15,8 @@
     co = checkout
     br = branch
     a = add
-    d = diff
     r = reset
-    s = stash
+    s = switch
 [pull]
     rebase = true
 [push]
