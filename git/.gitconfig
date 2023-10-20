@@ -8,6 +8,9 @@
     editor = vim
     ignorecase = false
     excludesfile = ~/.gitign
+    pager = delta
+[interactive]
+    diffFilter = delta --color-only
 [alias]
     co = checkout
     br = branch
@@ -22,6 +25,7 @@
     followTags = true
 [diff]
     tool = vimdiff
+    colorMoved = default
 [difftool]
     prompt = false
 [tig "bind"]
@@ -55,3 +59,8 @@
     defaultBranch = main
 [safe]
     directory = /tmp/sandcastle
+[delta]
+    navigate = true    # use n and N to move between diff sections
+    light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
+    syntax-theme = Solarized (dark)
+    line-numbers = true
