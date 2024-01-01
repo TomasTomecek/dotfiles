@@ -182,7 +182,7 @@ prm-filter() { podman rm $(podman ps -a | grep ${1} | awk '{print $1}') }
 docker-get-ip() { docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $1; }
 alias sen="sen --yolo"
 alias find-todo="egrep -R '(TODO|FIXME)' ."
-ve() { vim -p $(git ls-files -m); }
+ve() { vim -p $(git ls-files -m -o --exclude-standard); }
 
 dig() { /usr/bin/dig $@ +nostats +nocomments +nocmd; }
 
