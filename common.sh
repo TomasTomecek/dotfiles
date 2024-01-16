@@ -183,13 +183,11 @@ docker-get-ip() { docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAdd
 alias sen="sen --yolo"
 alias find-todo="egrep -R '(TODO|FIXME)' ."
 ve() {
-  local files;
   if output=$(git status --porcelain) && [ -z "$output" ]; then
-    files=$(git diff-tree --name-only --no-commit-id -r HEAD);
+    vim -p $(git diff-tree --name-only --no-commit-id -r HEAD);
   else
-    files=$(git ls-files -m -o --exclude-standard);
+    vim -p $(git ls-files -m -o --exclude-standard);
   fi
-  vim -p $files;
 }
 
 dig() { /usr/bin/dig $@ +nostats +nocomments +nocmd; }
