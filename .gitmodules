@@ -16,3 +16,6 @@
 [submodule "mysterious-keybinds"]
 	path = mysterious-keybinds
 	url = git@github.com:TomasTomecek/mysterious-keybinds
+[submodule "ext/alacritty-theme"]
+	path = ext/alacritty-theme
+	url = https://github.com/alacritty/alacritty-theme

@@ -1,0 +1,5 @@
+import = ["/home/tt/.dotfiles/ext/alacritty-theme/themes/solarized_dark.toml"]
+
+[font.normal]
+family = "Iosevka Extended"
+style = "Regular"
