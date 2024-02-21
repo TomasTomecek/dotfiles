@@ -19,7 +19,6 @@ Functionality:
 3. Cd to the repo
 4. Set remote upstream
 4. Set remote origin
-5. Fetch all
 """
 
 import os
@@ -91,12 +90,6 @@ def set_origin_remote(repo):
     subprocess.check_call(["git", "config", "--local", "--add", "remote.origin.fetch", "+refs/pull/*/head:refs/remotes/origin/pr/*"])
 
 
-def fetch_all():
-    logger.debug("fetching everything")
-    with open("/dev/null", "w") as fd:
-        subprocess.check_call(["git", "fetch", "--all"], stdout=fd)
-
-
 def main():
     with open(os.path.expanduser("~/.github.token"), "r") as fd:
         token = fd.read().strip()
@@ -126,7 +119,6 @@ def main():
 
         set_upstream_remote(target_repo)
     set_origin_remote(user_repo)
-    fetch_all()
 
 
 if __name__ == "__main__":
