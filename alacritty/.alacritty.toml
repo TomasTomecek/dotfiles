@@ -1,5 +1,8 @@
 import = ["/home/tt/.dotfiles/ext/alacritty-theme/themes/solarized_dark.toml"]
 
+[env]
+term = "xterm-256color"
+
 [font.normal]
 family = "Iosevka Extended"
 style = "Regular"
