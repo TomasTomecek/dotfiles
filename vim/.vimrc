@@ -9,7 +9,9 @@ call plug#begin('~/.vim/plugged')
 " Plugin 'jelera/vim-javascript-syntax'
 " Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
-Plug 'jwhitley/vim-colors-solarized'
+" Plug 'jwhitley/vim-colors-solarized'
+" Plug 'ericbn/vim-solarized'
+" Plug 'maxmx03/solarized.nvim'
 Plug 'bling/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ntpeters/vim-better-whitespace'
@@ -89,7 +91,8 @@ set undofile
 
 " Use 256 colours (Use this setting only if your terminal supports 256 colours)
 set t_Co=256
-colorscheme solarized
+set termguicolors
+" colorscheme solarized
 " colorscheme peachpuff
 
 " Allow saving of files as sudo when I forgot to start vim using sudo.
