@@ -1,6 +1,6 @@
 # common stuff for both shells
 
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # VARS
 
@@ -37,7 +37,7 @@ alias ls="ls --color=auto"
 alias llt="ls -lht --color=auto"
 alias ll="ls -lh --color=auto"
 alias lla="ls -lha --color=auto"
-alias vR="vim -R"
+alias vR="nvim -R"
 alias tree="tree -C"
 alias rsync="rsync -Pra"  # progress, recursive, archive; no compress - it slows things down
 alias dd="dd status=progress"
@@ -55,12 +55,12 @@ v() {
     /usr/bin/vim ${@} ;
   fi
 }
-alias vs="vim ./*.spec"
-alias vm="vim Makefile"
-alias vd="vim Dockerfile"
-alias vr="vim README*"
-alias vy="vim ./*.y*ml"
-alias vv="vim ./Vagrantfile"
+alias vs="nvim ./*.spec"
+alias vm="nvim Makefile"
+alias vd="nvim Dockerfile"
+alias vr="nvim README*"
+alias vy="nvim ./*.y*ml"
+alias vv="nvim ./Vagrantfile"
 # halp!!1!
 alias h="less ~/.dotfiles/mysterious-keybinds/README.md ~/.dotfiles/ext/dotfiles-secret/myst.md"
 
@@ -184,9 +184,9 @@ alias sen="sen --yolo"
 alias find-todo="egrep -R '(TODO|FIXME)' ."
 ve() {
   if output=$(git status --porcelain) && [ -z "$output" ]; then
-    vim -p $(git diff-tree --name-only --no-commit-id -r HEAD);
+    nvim -p $(git diff-tree --name-only --no-commit-id -r HEAD);
   else
-    vim -p $(git ls-files -m -o --exclude-standard);
+    nvim -p $(git ls-files -m -o --exclude-standard);
   fi
 }
 
