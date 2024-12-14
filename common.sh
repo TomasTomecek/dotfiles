@@ -40,7 +40,7 @@ alias lla="ls -lha --color=auto"
 alias vR="nvim -R"
 alias tree="tree -C"
 alias rsync="rsync -Pra"  # progress, recursive, archive; no compress - it slows things down
-alias dd="dd status=progress"
+alias dd="dd status=progress bs=1MB"
 alias curl="curl -L"
 alias diff="diff --color=always -u"
 alias strace="strace -s512 -f -yy"
