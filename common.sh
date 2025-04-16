@@ -199,7 +199,7 @@ alias wo="watch oc get all"
 alias od="oc describe"
 alias og="oc get"
 
-alias pt="python3 -m pytest -vv --showlocals"
+alias pt="python3 -m pytest -vv --showlocals --log-cli-level=DEBUG"
 alias prcal="pre-commit run --all-files"
 
 # root aliases
