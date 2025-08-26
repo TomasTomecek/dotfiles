@@ -155,7 +155,7 @@ alias ju="journalctl --pager-end"
 alias sysdig="docker run -it --rm --privileged -v /:/host:ro -e TERM=$TERM sysdig/sysdig csysdig"
 
 alias b=buildah
-alias c="docker-compose"
+alias c="podman-compose"
 alias d="docker"
 alias p="podman"
 alias sp="sudo podman"
