@@ -38,6 +38,7 @@
     fetchJobs = 4
 [commit]
     template = ~/.dotfiles/git/.git-template
+    verbose = true
 [remote "origin"]
     # github, pagure
     fetch = +refs/pull/*/head:refs/remotes/origin/pr/*
