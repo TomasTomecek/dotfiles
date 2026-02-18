@@ -13,6 +13,7 @@ openshift.local.clusterup/
 *.retry
 .tox
 *.tar.gz
+*.tar.bz2
 *.src.rpm
 .mypy_cache/
 .coverage
