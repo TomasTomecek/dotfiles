@@ -78,7 +78,6 @@ set hlsearch
 filetype indent plugin on
 filetype plugin on
 set modeline
-set pastetoggle=<F2>
 set showmode
 "don't complain when changing buffers via :buffer
 set hidden
