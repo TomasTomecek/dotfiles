@@ -1,3 +1,4 @@
+[general]
 import = ["/home/tt/.dotfiles/ext/alacritty-theme/themes/solarized_dark.toml"]
 
 [env]
