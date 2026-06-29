@@ -18,3 +18,5 @@ openshift.local.clusterup/
 .mypy_cache/
 .coverage
 .vscode
+
+**/.claude/settings.local.json
