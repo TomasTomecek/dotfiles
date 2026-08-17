@@ -123,6 +123,10 @@ values:
     - type: stash
       pre_format: '%{%F{141}%}☐'
       post_format: '%{%f%}'
+      # name of a tag which points exactly at the checked out commit
+    - type: tag
+      pre_format: '#'
+      post_format: ''
     - type: separator
       display: always
       pre_format: ')'
