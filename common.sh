@@ -199,9 +199,9 @@ alias wo="watch oc get all"
 alias od="oc describe"
 alias og="oc get"
 o-po-name-latest() { oc get pods --sort-by=.metadata.creationTimestamp -o jsonpath="{.items[-1:].metadata.name}"; }
-o-po-logs-latest() { oc logs -f po/$(o-po-name-latest); }
+o-po-logs-latest() { oc logs --tail=500 -f po/$(o-po-name-latest); }
 o-po-name() { oc get pods --no-headers -o custom-columns=":metadata.name" | egrep "$1" | head -n1; }
-o-po-logs() { oc logs -f po/$(o-po-name $1); }
+o-po-logs() { oc logs --tail=500 -f po/$(o-po-name $1); }
 
 alias pt="python3 -m pytest -vv --showlocals --log-cli-level=DEBUG"
 alias prcal="pre-commit run --all-files"
