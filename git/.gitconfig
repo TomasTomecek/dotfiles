@@ -64,3 +64,5 @@
     light = false      # set to true if you're in a terminal w/ a light background color (e.g. the default macOS terminal)
     syntax-theme = Solarized (dark)
     line-numbers = true
+[credential]
+    helper = store
