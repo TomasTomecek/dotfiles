@@ -69,6 +69,18 @@ vd() {
   fi
   nvim -o "${files[@]}" ${@} ;
 }
+vc() {
+  local f
+  local -a files=()
+  while IFS= read -r f ; do
+    files+=( "$f" ) ;
+  done < <(find . -maxdepth 1 -name '*compose*.y*ml' -type f | sort)
+  if [ ${#files[@]} -eq 0 ]; then
+    echo "no *compose*.y*ml in ${PWD}" ;
+    return 1 ;
+  fi
+  nvim -o "${files[@]}" ${@} ;
+}
 alias vr="nvim README*"
 alias vy="nvim ./*.y*ml"
 alias vv="nvim ./Vagrantfile"
