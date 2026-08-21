@@ -57,7 +57,18 @@ v() {
 }
 alias vs="nvim ./*.spec"
 alias vm="nvim Makefile"
-alias vd="nvim Dockerfile"
+vd() {
+  local f
+  local -a files=()
+  while IFS= read -r f ; do
+    files+=( "$f" ) ;
+  done < <(find . -maxdepth 1 \( -name 'Containerfile*' -o -name 'Dockerfile*' \) -type f | sort)
+  if [ ${#files[@]} -eq 0 ]; then
+    echo "no Containerfile* or Dockerfile* in ${PWD}" ;
+    return 1 ;
+  fi
+  nvim -o "${files[@]}" ${@} ;
+}
 alias vr="nvim README*"
 alias vy="nvim ./*.y*ml"
 alias vv="nvim ./Vagrantfile"
