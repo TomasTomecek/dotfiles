@@ -461,7 +461,9 @@ require('lazy').setup({
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
       -- v1.x: last release using the old lspconfig API (v2.x uses vim.lsp.enable, needs nvim 0.11+)
       { 'williamboman/mason-lspconfig.nvim', tag = 'v1.32.0' },
-      'WhoIsSethDaniel/mason-tool-installer.nvim',
+      -- Pin to the last commit before the mason-lspconfig v2 mapping rename (repo has no tags);
+      -- newer commits expect mason-lspconfig v2's `lspconfig_to_package` keys.
+      { 'WhoIsSethDaniel/mason-tool-installer.nvim', commit = '09caa3380a0e8532043bc417c04d1d6d31b6683b' },
 
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
