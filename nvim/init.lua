@@ -454,10 +454,13 @@ require('lazy').setup({
   {
     -- Main LSP Configuration
     'neovim/nvim-lspconfig',
+    -- Pin to the last release compatible with Neovim 0.10 (v1.8.0+/v2.x need 0.11)
+    tag = 'v1.7.0',
     dependencies = {
       -- Automatically install LSPs and related tools to stdpath for Neovim
       { 'williamboman/mason.nvim', config = true }, -- NOTE: Must be loaded before dependants
-      'williamboman/mason-lspconfig.nvim',
+      -- v1.x: last release using the old lspconfig API (v2.x uses vim.lsp.enable, needs nvim 0.11+)
+      { 'williamboman/mason-lspconfig.nvim', tag = 'v1.32.0' },
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
       -- Useful status updates for LSP.
@@ -900,34 +903,11 @@ require('lazy').setup({
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
-  { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    -- Pin to the last release with the old API: the new nvim-treesitter (main)
-    -- requires Neovim >= 0.12, which this machine does not have.
-    tag = 'v0.10.0',
-    build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
-    -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
-    opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
-      -- Autoinstall languages that are not installed
-      auto_install = true,
-      highlight = {
-        enable = true,
-        -- Some languages depend on vim's regex highlighting system (such as Ruby) for indent rules.
-        --  If you are experiencing weird indenting issues, add the language to
-        --  the list of additional_vim_regex_highlighting and disabled languages for indent.
-        additional_vim_regex_highlighting = { 'ruby' },
-      },
-      indent = { enable = true, disable = { 'ruby' } },
-    },
-    -- There are additional nvim-treesitter modules that you can use to interact
-    -- with nvim-treesitter. You should go explore a few and see what interests you:
-    --
-    --    - Incremental selection: Included, see `:help nvim-treesitter-incremental-selection-mod`
-    --    - Show your current context: https://github.com/nvim-treesitter/nvim-treesitter-context
-    --    - Treesitter + textobjects: https://github.com/nvim-treesitter/nvim-treesitter-textobjects
-  },
+  -- NOTE: nvim-treesitter is intentionally not used on this machine (Neovim 0.10):
+  -- the only release compatible with 0.10 (v0.10.0) conflicts with 0.10's built-in
+  -- treesitter highlighter, and newer releases require Neovim >= 0.11.
+  -- Syntax highlighting comes from Neovim's built-in regex syntax files.
+  -- Re-add nvim-treesitter once Neovim >= 0.12 is available.
   { 'kien/ctrlp.vim' },
 
   -- The following two comments only work if you have downloaded the kickstart repo, not just copy pasted the
