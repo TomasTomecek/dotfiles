@@ -902,8 +902,11 @@ require('lazy').setup({
   },
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
+    -- Pin to the last release with the old API: the new nvim-treesitter (main)
+    -- requires Neovim >= 0.12, which this machine does not have.
+    tag = 'v0.10.0',
     build = ':TSUpdate',
-    main = 'nvim-treesitter', -- Sets main module to use for opts
+    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
