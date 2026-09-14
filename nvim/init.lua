@@ -98,6 +98,11 @@ vim.g.have_nerd_font = false
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- Truecolor: the current colorbuddy (used by neosolarized) only defines GUI
+-- colors; without this, everything renders monochrome in a terminal.
+-- (alacritty and tmux >= 3.0 both support truecolor.)
+vim.opt.termguicolors = true
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
