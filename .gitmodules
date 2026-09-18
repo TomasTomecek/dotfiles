@@ -6,13 +6,13 @@
 	url = https://github.com/peel/mc.git
 [submodule "mail"]
 	path = mail
-	url = ssh://git@192.168.1.30/tt/dotfiles-mail.git
+	url = ssh://git@plum-forgejo/tt/dotfiles-mail.git
 [submodule "sbin"]
 	path = sbin
-	url = ssh://git@192.168.1.30/tt/sbin.git
+	url = ssh://git@plum-forgejo/tt/sbin.git
 [submodule "secret"]
 	path = ext/dotfiles-secret
-	url = ssh://git@192.168.1.30/tt/dotfiles-secret.git
+	url = ssh://git@plum-forgejo/tt/dotfiles-secret.git
 [submodule "mysterious-keybinds"]
 	path = mysterious-keybinds
 	url = git@github.com:TomasTomecek/mysterious-keybinds
