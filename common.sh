@@ -176,10 +176,9 @@ alias stp="systemctl stop"
 alias ju="journalctl --pager-end"
 alias sysdig="docker run -it --rm --privileged -v /:/host:ro -e TERM=$TERM sysdig/sysdig csysdig"
 
-alias b=buildah
 alias c="podman-compose"
-alias d="docker"
-alias p="podman"
+alias p="/usr/local/bin/pi"
+alias po="podman"
 alias sp="sudo podman"
 alias di="docker images"
 alias pi="podman images"
