@@ -22,6 +22,8 @@ export PYTHONDONTWRITEBYTECODE="fuck-yes"
 
 test -f /etc/pki/tls/certs/ca-bundle.crt && export REQUESTS_CA_BUNDLE=/etc/pki/tls/certs/ca-bundle.crt
 
+export DOCKER_HOST=unix://$(podman info --format={{".Host.RemoteSocket.Path"}})
+
 # gpg wants this
 export GPG_TTY=$(tty)
 
