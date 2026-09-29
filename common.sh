@@ -17,7 +17,6 @@ export GOPATH="${HOME}/dev/go:${HOME}/go:/usr/share/gocode/"
 export GOBIN="${HOME}/dev/go/bin"
 
 export PATH=~/.dotfiles/bin:~/.dotfiles/sbin:~/.local/bin/:${GOBIN}:${PATH}
-export PYTHONPATH=~/.local/lib/python3.7/site-packages/
 
 export PYTHONDONTWRITEBYTECODE="fuck-yes"
 
